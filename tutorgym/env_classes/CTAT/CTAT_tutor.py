@@ -221,8 +221,27 @@ class CTAT_Tutor(StateMachineTutor):
 
         # Then expand edges in waves, one frontier at a time.
         #  A frontier is the set of unvisited nodes that were
-        #  destinations of a previous wave's expanded edges.
-        frontier = set([self.start_node_id])
+        #  destinations of a previous wave's expanded edges. Seed with
+        #  BOTH the BRD's start node AND CTAT's conventional root "1"
+        #  — some BRDs (e.g. 6_27_HTML/03sailfish) attach their first
+        #  tutor action to node "1" and then transition into the
+        #  startStateNodeName via that tutor step, so a frontier that
+        #  only starts at startStateNodeName would skip those edges
+        #  and leave group members unreachable in the FSM.
+        # Deterministic order matters: the first node to expand a
+        #  grouped edge fixes that group's start_id via add_unordered,
+        #  so start_node_id must be visited BEFORE "1". Python set
+        #  iteration is hash-randomised per process, which caused
+        #  flaky passes when "1" happened to come first.
+        frontier: list = [self.start_node_id]
+        if "1" in edge_dict and "1" != self.start_node_id:
+            # Materialise node "1" with a copy of the start state so BFS
+            # can expand its edges. The state content is identical — "1"
+            # is a logical label CTAT reserves for the BRD root.
+            root_state = start_state.copy(keep_annotations=True)
+            root_state.add_annotations({"unique_id": "1"})
+            fsm._ensure_node(root_state, "1")
+            frontier.append("1")
         covered = set()
         while len(frontier) > 0:
             new_frontier = set()
