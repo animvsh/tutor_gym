@@ -12,6 +12,7 @@ import numpy as np
 import hashlib
 from base64 import b64encode
 import re
+import string
 import numpy as np
 import rstr
 from typing import Any, Callable, Mapping, Pattern, Sequence, Union

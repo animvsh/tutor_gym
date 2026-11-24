@@ -91,6 +91,12 @@ def parse_matcher(node):
     matcher_type = node.find("matcherType").text
     cls = matcher_classes[matcher_type]
     params = {x.attrib['name'] : x.text for x in node.iter("matcherParameter")}
+    # CTAT's author tool leaves matcherParameter text empty (None here) on edges
+    # that should accept any value — e.g. Buggy Actions whose Input field was
+    # never filled in. Treat those as AnyMatcher so parsing doesn't crash later
+    # (RegexMatcher(None) explodes inside norand_xeger).
+    if any(v is None for v in params.values()):
+        return AnyMatcher()
     matcher = cls(**params)
     return matcher
 
@@ -106,9 +112,17 @@ def parse_old_matcher(node):
     inp = params["input"]
     actor = params["actor"].lower()
 
-    inp_m = cls(params["input"])
+    # Legacy <matcher> entries sometimes omit the <input> text (CTAT's author
+    # tool leaves it blank when the edge should match any value typed by the
+    # student). Build an AnyMatcher in that case and give the oracle a concrete
+    # empty-string demo value so the action still applies cleanly.
+    if inp is None:
+        inp_m = AnyMatcher()
+        inp = ""
+    else:
+        inp_m = cls(params["input"])
 
-    annotations = {"checker" : 
+    annotations = {"checker" :
         Checker(selection, action_type, inp_m)
     }
     return actor, Action((selection, action_type, inp), **annotations)
