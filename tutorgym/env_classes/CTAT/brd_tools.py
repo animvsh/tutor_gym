@@ -792,6 +792,9 @@ def parse_brd(filepath, verbosity=1):
 
     # BRDs declare which node is the start via stateGraph/@startStateNodeName
     # (e.g. 8_22_HTML uses "labelFilled"). Default to CTAT's "1" when absent.
+    # Some 8_22_HTML BRDs still carry the stale authoring-tool name "go" even
+    # though their start node was renamed to "labelFilled"; fall back to the
+    # labelFilled node when the declared name doesn't resolve.
     start_node_name = root.attrib.get("startStateNodeName")
 
     try:
@@ -818,8 +821,15 @@ def parse_brd(filepath, verbosity=1):
     except Exception as e:
         raise type(e)(f"An error occured while parsing {filepath} " + str(e)) from e
 
-    start_node_id = node_name_to_id.get(start_node_name, "1") \
-        if start_node_name else "1"
+    if start_node_name:
+        if start_node_name in node_name_to_id:
+            start_node_id = node_name_to_id[start_node_name]
+        elif "labelFilled" in node_name_to_id:
+            start_node_id = node_name_to_id["labelFilled"]
+        else:
+            start_node_id = "1"
+    else:
+        start_node_id = "1"
 
     return start_actions, edges, edge_groups, start_node_id
 

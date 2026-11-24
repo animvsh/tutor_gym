@@ -110,3 +110,25 @@ def test_brd_start_state_resolves_named_node():
     )
     # "labelFilled" node has uniqueID 24 in that BRD.
     assert start_id == "24"
+
+
+def test_brd_start_state_falls_back_to_label_filled():
+    # 8_22_HTML/02circleCirc.brd declares startStateNodeName="go" but no node
+    # is named "go"; the renamed start node is "labelFilled" (uid 24). Without
+    # the fallback, parse_brd would pick uid "1", whose only out-edge is a
+    # MassProduction template that edge filters drop, stranding the oracle.
+    from tutorgym.env_classes.CTAT.brd_tools import parse_brd
+    _, _, _, start_id = parse_brd(
+        str(MATHTUTOR / "8_22_HTML/FinalBRDs/02circleCirc.brd")
+    )
+    assert start_id == "24"
+
+
+def test_brd_start_state_label_filled_fallback_completes():
+    # Oracle-complete 02circleCirc, which only works once the labelFilled
+    # fallback kicks in for its stale startStateNodeName="go".
+    steps = _run_oracle(
+        MATHTUTOR / "8_22_HTML/HTML/8.22.html",
+        MATHTUTOR / "8_22_HTML/FinalBRDs/02circleCirc.brd",
+    )
+    assert steps > 0
