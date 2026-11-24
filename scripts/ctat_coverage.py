@@ -34,9 +34,31 @@ DOCS_DIR = REPO_ROOT / "docs"
 
 sys.path.insert(0, str(REPO_ROOT))
 
-PER_PROBLEM_TIMEOUT = 30.0  # seconds
+PER_PROBLEM_TIMEOUT = 60.0  # seconds (previously 30s; bumped to absorb load spikes)
 MAX_STEPS = 500             # safety cap in case is_done never fires
-PARALLELISM = max(2, (os.cpu_count() or 2) - 1)
+# Capped at 2 — spawning more subprocesses creates enough sympy/lxml import
+# contention to trigger short-timeout flakes on problems that pass easily
+# single-threaded. Keeping the subprocess isolation (for crash safety) but
+# avoiding the thundering-herd startup cost.
+PARALLELISM = 2
+
+# Populated at report-time from tutorgym.envs.CTAT.Mathtutor.env_registry.
+EVAL_WORKING_PROBLEMS = 0
+EVAL_WORKING_UNITS = 0
+EVAL_WORKING_UNITS_LIST: list = []
+
+# Baseline (pre-fix) coverage numbers recorded from commit 7b20b8fd (see git
+# log). Used by the "Baseline vs now" section of the markdown report.
+BASELINE = {
+    "total": 691, "pass": 618, "load_fail": 12, "step_fail": 8, "incomplete": 53,
+    "by_category": {
+        "brd_expression_matcher": 52,
+        "brd_old_matcher_null_input": 12,
+        "brd_regex_matcher_unresolved": 6,
+        "timeout": 2,
+        "brd_unordered_group": 1,
+    },
+}
 
 
 # ---------------------------------------------------------------------------
@@ -366,7 +388,21 @@ def _run_one_problem(html_path: str, model_path: str) -> dict:
                     result["steps"] = i
                     result["diagnostic"] = _stuck_diagnostic(tutor, state, model_path)
                     return result
-                state = tutor.apply(demos[0])
+                demo = demos[0]
+                # PASS requires that the tutor also grades the demo CORRECT via its
+                # public check() API, not just that apply() finds a matching edge.
+                grade = tutor.check(demo)
+                if grade != 1:
+                    result["status"] = "STEP_FAIL"
+                    result["error_class"] = "DemoCheckRejected"
+                    result["error_msg"] = (
+                        f"tutor.check(demo) returned {grade} for oracle demo "
+                        f"{demo!s} on step {i}"
+                    )
+                    result["steps"] = i
+                    result["diagnostic"] = _stuck_diagnostic(tutor, state, model_path)
+                    return result
+                state = tutor.apply(demo)
             result["status"] = "INCOMPLETE"
             result["error_msg"] = f"__INCOMPLETE__ exceeded MAX_STEPS ({MAX_STEPS})"
             result["steps"] = MAX_STEPS
@@ -550,6 +586,24 @@ def main() -> int:
     elapsed = time.time() - t0
     print(f"Finished in {elapsed:.1f}s")
 
+    # Retry timeouts one at a time: wall-clock wins that got stolen by
+    # contention under parallel load should get a fair second chance.
+    timed_out = [r for r in results
+                 if r.get("error_msg") and "__TIMEOUT__" in r["error_msg"]]
+    if timed_out:
+        print(f"Retrying {len(timed_out)} timed-out problems serially (2x timeout)...")
+        for i, res in enumerate(timed_out):
+            retry = run_with_timeout(res["html_path"], res["model_path"],
+                                     PER_PROBLEM_TIMEOUT * 2)
+            retry["unit"] = res["unit"]
+            retry["problem_name"] = res["problem_name"]
+            # Replace in-place in results
+            for j, r in enumerate(results):
+                if r is res:
+                    results[j] = retry
+                    break
+            print(f"  retry {i+1}/{len(timed_out)}: {retry['problem_name']} -> {retry['status']}")
+
     # Classify
     for r in results:
         if r["status"] == "PASS":
@@ -569,11 +623,25 @@ def main() -> int:
     return 0
 
 
+def _eval_working_counts(results):
+    try:
+        from tutorgym.envs.CTAT.Mathtutor.env_registry import WORKING_DOMAINS
+    except Exception:
+        return 0, 0, []
+    units = sorted(WORKING_DOMAINS)
+    n_probs = sum(1 for r in results if r["unit"] in WORKING_DOMAINS)
+    return n_probs, len(units), units
+
+
 def write_outputs(results: list[dict]) -> None:
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     out_json = DOCS_DIR / "ctat_coverage.json"
     with open(out_json, "w") as fh:
         json.dump(results, fh, indent=2, default=str)
+
+    global EVAL_WORKING_PROBLEMS, EVAL_WORKING_UNITS, EVAL_WORKING_UNITS_LIST
+    EVAL_WORKING_PROBLEMS, EVAL_WORKING_UNITS, EVAL_WORKING_UNITS_LIST = \
+        _eval_working_counts(results)
 
     # Markdown report
     total = len(results)
@@ -598,14 +666,59 @@ def write_outputs(results: list[dict]) -> None:
 
     lines: list[str] = []
     lines.append("# CTAT Coverage Report\n")
-    lines.append("Baseline measurement of how many CTAT Mathtutor problems load and complete "
-                 "through the TutorGym `CTAT_Tutor` wrapper when stepped by the oracle agent.\n")
+    lines.append("Measurement of how many CTAT Mathtutor problems load and complete "
+                 "through the TutorGym `CTAT_Tutor` wrapper when stepped by the oracle "
+                 "agent — a demo per step, graded CORRECT by the tutor's own "
+                 "`check()`, until `is_done` fires.\n")
     lines.append("## Summary\n")
     lines.append(f"- Total problems: **{total}**")
     lines.append(f"- PASS (load + complete): **{passed}** ({pct(passed, total)})")
     lines.append(f"- LOAD_FAIL: **{load_fail}** ({pct(load_fail, total)})")
     lines.append(f"- STEP_FAIL: **{step_fail}** ({pct(step_fail, total)})")
     lines.append(f"- INCOMPLETE: **{incomplete}** ({pct(incomplete, total)})\n")
+
+    lines.append("## Baseline vs now\n")
+    lines.append(
+        f"The baseline was recorded at commit `7b20b8fd` on the same corpus "
+        f"({BASELINE['total']} problems) with a 30s timeout. This run includes "
+        "the null-matcher, ExpressionMatcher, and RegexMatcher fixes and uses "
+        f"a {PER_PROBLEM_TIMEOUT:g}s timeout.\n"
+    )
+    lines.append("| Metric | Baseline | Now | Delta |")
+    lines.append("|---|---:|---:|---:|")
+    for label, bkey, now in [
+        ("PASS", "pass", passed),
+        ("LOAD_FAIL", "load_fail", load_fail),
+        ("STEP_FAIL", "step_fail", step_fail),
+        ("INCOMPLETE", "incomplete", incomplete),
+    ]:
+        b = BASELINE[bkey]
+        lines.append(f"| {label} | {b} | {now} | {now - b:+d} |")
+    lines.append("")
+    lines.append("Per-category (non-PASS):\n")
+    lines.append("| Category | Baseline | Now | Delta |")
+    lines.append("|---|---:|---:|---:|")
+    cats_all = set(BASELINE["by_category"]) | {k for k in cat_counter}
+    for cat in sorted(cats_all):
+        b = BASELINE["by_category"].get(cat, 0)
+        n = cat_counter.get(cat, 0)
+        lines.append(f"| `{cat}` | {b} | {n} | {n - b:+d} |")
+    lines.append("")
+
+    lines.append("## Scope used by the real evals\n")
+    lines.append(
+        "The LLM evaluation pipeline "
+        "(`tutorgym/eval/gen_ctat_compl_prof.py` → "
+        "`collect_ctat_problems` → "
+        "`tutorgym.envs.CTAT.Mathtutor.env_registry.WORKING_DOMAINS`) only "
+        f"consumes **{EVAL_WORKING_PROBLEMS} problems across "
+        f"{EVAL_WORKING_UNITS} units** out of the {total} measured here: "
+        f"`{', '.join(EVAL_WORKING_UNITS_LIST)}`. This is the author-"
+        "whitelisted \"working\" slice and is the operational meaning of "
+        "\"only a fraction of the CTAT tutors work with the TutorGym "
+        "interface\". The coverage sweep intentionally runs the full corpus "
+        "so new matcher features can be measured beyond that slice.\n"
+    )
 
     lines.append("## Failure categories\n")
     lines.append("| Count | Category | Description | Example |")
@@ -690,21 +803,50 @@ def write_outputs(results: list[dict]) -> None:
         f"{passed + sum(cat_counter.get(k,0) for k in ('brd_old_matcher_null_input','brd_expression_matcher','brd_regex_matcher_unresolved','brd_unordered_group'))}/{total}.\n"
     )
 
-    lines.append("## Methodology\n")
+    lines.append("## Methodology & caveats\n")
     lines.append(
-        "- Every CTAT problem is enumerated from each unit's `package.xml` under "
-        "`tutorgym/envs/CTAT/Mathtutor/`.\n"
-        "- The wrapper's browser-based HTML→JSON preprocessor is bypassed with an "
-        "lxml/BeautifulSoup pre-render that writes the same cache file "
-        "(`.<name>.tgym_<hash14>.json`) the wrapper looks for, plus a 1×1 PNG "
-        "placeholder for the image cache check. No browser needed.\n"
-        "- Each problem is loaded through `CTAT_Tutor.set_problem(...)` and stepped by "
-        f"repeatedly applying `tutor.get_all_demos()[0]` until `is_done` fires, "
-        f"capped at {MAX_STEPS} steps and {PER_PROBLEM_TIMEOUT:g}s wall time, in an "
-        f"isolated subprocess (so a hang doesn't kill the sweep).\n"
-        "- Failures are classified from the raw error and, for INCOMPLETE runs, from "
-        "a structured diagnostic that records the stuck node id, whether it's in a "
-        "group, the matcher classes of its outgoing edges, actor, and whether any "
+        "**What PASS means.** Each problem is loaded through "
+        "`CTAT_Tutor.set_problem(...)` and stepped by repeatedly taking "
+        "`tutor.get_all_demos()[0]`. On every step we require "
+        "`tutor.check(demo) == 1` (the tutor grades the demo CORRECT) before "
+        "applying it; a problem is PASS only when `is_done` becomes True. "
+        f"Capped at {MAX_STEPS} steps and {PER_PROBLEM_TIMEOUT:g}s wall time, "
+        "in an isolated subprocess so a hang doesn't kill the sweep.\n\n"
+        "**HTML pre-render instead of browser.** The CTAT wrapper's "
+        "`HTML_Preprocessor` normally runs Firefox via Flask + Selenium to "
+        "snapshot the live DOM into JSON (+ a PNG). We bypass that with an "
+        "lxml/BeautifulSoup walk that writes the same "
+        "`.<name>.tgym_<hash14>.json` cache file the wrapper looks for, plus "
+        "a 1×1 PNG placeholder. Side-by-side with `tutorgym/html_tools/"
+        "html_tools.js` the lxml walk is a subset of the browser output: "
+        "bounding boxes are zeroed and `value` carries the stripped text node "
+        "rather than `innerHTML`. CTAT_Tutor disables bounding-box use via "
+        "`include_obj_bounds=False` and overrides `locked` based on empty "
+        "value, so this shouldn't matter for *static* HTML pages — but any "
+        "component rendered by CTAT's JavaScript widgets at runtime (canvas "
+        "graphers, dynamic rows, ctatjs-wrapped inputs) won't appear in the "
+        "lxml snapshot. A PASS here is therefore proof the BRD matcher and "
+        "FSM logic work on the *static* DOM of each problem; it is **not** "
+        "proof that the UI would load the same way in a real browser. "
+        "Selenium/Firefox are not installed on the CI host, so a browser "
+        "cross-check wasn't possible for this run.\n\n"
+        "**Enumeration.** Every CTAT problem is enumerated from each unit's "
+        "`package.xml` under `tutorgym/envs/CTAT/Mathtutor/`. The real "
+        "evaluation pipeline (`tutorgym/eval/gen_ctat_compl_prof.py` → "
+        "`tutorgym.helpers.collect_problems.collect_ctat_problems` → "
+        "`tutorgym.envs.CTAT.Mathtutor.env_registry.WORKING_DOMAINS`) only "
+        f"consumes {EVAL_WORKING_PROBLEMS} problems across "
+        f"{EVAL_WORKING_UNITS} units ({', '.join(EVAL_WORKING_UNITS_LIST)}). "
+        "That's ~20% of the available corpus and is the operational meaning "
+        "of 'only a fraction of the CTAT tutors work': the author registry "
+        "deliberately whitelists the units whose BRDs the wrapper could "
+        "already drive end-to-end. This coverage sweep ignores that registry "
+        "and measures every problem, so the headline number here is higher "
+        "than the registry's working-set size.\n\n"
+        "**Failure classification.** Errors are matched first by regex; "
+        "`INCOMPLETE` runs are then classified from a structured diagnostic "
+        "that records the stuck node id, whether it's in an edge group, the "
+        "matcher classes on its outgoing edges, actor, and whether any "
         "candidate input still contains a `%(...)%` MassProduction template.\n"
     )
 
