@@ -171,11 +171,11 @@ class RegexMatcher(BaseMatcher):
     def __init__(self, single, **kwargs):
         self.regex = single
         self.value = norand_xeger(self.regex)
-        # print("R", self.regex, self.value)
-        # raise ValueError()
 
     def check(self, state, inp):
-        return re.fullmatch(self.regex, inp)
+        if inp is None:
+            return False
+        return _re.fullmatch(self.regex, str(inp)) is not None
 
 class AnyMatcher(BaseMatcher): 
     def __init__(self, **kwargs):
@@ -379,6 +379,13 @@ def resolve_action(message_action, matcher_action):
         if(resolved is not None):
             return Action((sel, at, resolved), **matcher_action.annotations)
         return matcher_action
+
+    if(isinstance(matcher, RegexMatcher)):
+        # Give the oracle a concrete string the regex accepts. norand_xeger
+        # already produced one at matcher construction time; re-use it so the
+        # tutor.apply() path doesn't crash on re.fullmatch(regex, None).
+        if(matcher.value is not None):
+            return Action((sel, at, matcher.value), **matcher_action.annotations)
 
     return matcher_action
 
