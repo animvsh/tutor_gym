@@ -200,8 +200,31 @@ def _resolve_operand(expr, state, inp):
                 if v is not None:
                     return str(v)
         raise _Unsupported(f"unresolved identifier {expr!r}")
-    # Dotted ref (e.g. link25.input) — not supported.
+    # CTAT link reference: ``linkN.input`` resolves to the student input
+    # recorded on the FSM edge whose <uniqueID>N</uniqueID>. The state
+    # carries action_hist; look up the action whose ``unique_id``
+    # annotation matches N and hand back its ``input``. Supporting this
+    # makes formulas like ``polyTermsEqual(input, concat(link25.input,
+    # "/4 + 150"))`` evaluable on dependent edges (7_04_HTML, 7_01_HTML,
+    # 8_07_HTML).
     if '.' in expr:
+        head, _, tail = expr.partition('.')
+        mo2 = _re.match(r'^link(\w+)$', head)
+        if mo2 and tail == 'input':
+            link_id = mo2.group(1)
+            hist = getattr(state, 'action_hist', None) or []
+            for a in hist:
+                aid = None
+                get = getattr(a, 'get_annotation', None)
+                if get is not None:
+                    aid = get('unique_id', None)
+                if str(aid) == str(link_id):
+                    try:
+                        return str(a.input) if a.input is not None else ''
+                    except Exception:
+                        pass
+            raise _Unsupported(
+                f"link ref {expr!r}: no action with unique_id={link_id} in history")
         raise _Unsupported(f"dotted ref {expr!r}")
     # Numeric literal / simple expression — hand back as-is for sympy.
     return expr

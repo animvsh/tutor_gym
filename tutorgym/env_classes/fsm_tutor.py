@@ -436,8 +436,20 @@ class FiniteStateMachine:
 
         # Ensure ther are not duplicate actions
         next_actions = list(set(next_actions))
-        # print("next_actions", [x.annotations for x in next_actions])        
-        actions_sorted = sorted(next_actions, key=lambda x : x.get_annotation("optional", False))
+        # Deterministic order: primary key is 'optional' (required first),
+        # then the action's BRD unique_id (lexicographic) so the oracle
+        # consistently picks the edge whose target is resolvable with the
+        # current action_hist. Set-only iteration order varies by Python
+        # hash seed, causing flaky oracle picks across processes.
+        def _sort_key(a):
+            opt = a.get_annotation("optional", False)
+            uid = a.get_annotation("unique_id") or ""
+            try:
+                uid_num = int(uid)
+            except Exception:
+                uid_num = float("inf")
+            return (opt, uid_num, str(uid), str(a.as_tuple()))
+        actions_sorted = sorted(next_actions, key=_sort_key)
 
         # print("actions_sorted", [a.selection for a in actions_sorted])
         return actions_sorted

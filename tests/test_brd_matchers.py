@@ -190,6 +190,24 @@ def test_expression_matcher_and_requires_all_branches():
     assert m.check({}, "4") is False
 
 
+def test_link_ref_resolves_from_action_hist():
+    # CTAT formulas like concat(link25.input, "/4 + 150") resolve
+    # link25.input to the student input on the earlier edge whose
+    # <uniqueID>25</uniqueID>. _resolve_operand reads state.action_hist
+    # and matches by the 'unique_id' annotation carried on each demo.
+    from tutorgym.env_classes.CTAT.brd_tools import _resolve_operand
+    from tutorgym.shared import ProblemState, Action
+    hist = [Action(("variable", "UpdateTextField", "x"), unique_id="25")]
+    s = ProblemState({})
+    s.action_hist = hist
+    assert _resolve_operand("link25.input", s, inp=None) == "x"
+    # Full formula path via ExpressionMatcher.check
+    m = ExpressionMatcher(
+        'polyTermsEqual(input, concat(link25.input, "/4 + 150"))', "boolean")
+    assert m.check(s, "x/4 + 150") is True
+    assert m.check(s, "y/4 + 150") is False
+
+
 def test_regex_match_in_expression_matcher():
     # 7_15_HTML/1.brd fourthMid2: or(and(regExMatch(".*[+-*/].*",input),
     #   expressionMatches(input,"1.25")), dollarEquals(input,"1.25"))

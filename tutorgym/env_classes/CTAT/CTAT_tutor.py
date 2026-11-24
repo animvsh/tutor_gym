@@ -68,6 +68,10 @@ class CTAT_Tutor(StateMachineTutor):
         self.html_proc_config = html_proc_config
         self.html_proc = HTML_Preprocessor(**html_proc_config)
         self.edge_filters = edge_filters
+        # Carry the originating BRD edge's uniqueID on each demo so that
+        # action_hist entries can be looked up by link reference later
+        # (e.g. formulas like concat(link25.input, "*6")).
+        kwargs.setdefault("demo_annotations", ["unique_id"])
         super().__init__(action_model=CTAT_ActionModel,**kwargs)
         self.next_action_filters.append(ensure_not_early_done_filter)
         self.include_obj_bounds = include_obj_bounds
