@@ -5,11 +5,11 @@ Measurement of how many CTAT Mathtutor problems load and complete through the Tu
 ## Summary
 
 - Total problems: **691**
-- PASS (load + complete): **608** (88.0%)
-- PASS_STRICT (PASS AND wrong inputs rejected at every step): **608** (88.0%)
+- PASS (load + complete): **670** (97.0%)
+- PASS_STRICT (PASS AND wrong inputs rejected at every step): **670** (97.0%)
 - LOAD_FAIL: **0** (0.0%)
-- STEP_FAIL: **53** (7.7%)
-- INCOMPLETE: **30** (4.3%)
+- STEP_FAIL: **0** (0.0%)
+- INCOMPLETE: **21** (3.0%)
 
 ## Baseline vs now
 
@@ -17,20 +17,20 @@ Baseline numbers are measured with this same script (including PASS_STRICT) agai
 
 | Metric | Baseline | Now | Delta |
 |---|---:|---:|---:|
-| PASS | 620 | 608 | -12 |
-| PASS_STRICT | 620 | 608 | -12 |
+| PASS | 620 | 670 | +50 |
+| PASS_STRICT | 620 | 670 | +50 |
 | LOAD_FAIL | 12 | 0 | -12 |
-| STEP_FAIL | 7 | 53 | +46 |
-| INCOMPLETE | 52 | 30 | -22 |
+| STEP_FAIL | 7 | 0 | -7 |
+| INCOMPLETE | 52 | 21 | -31 |
 
 Per-category (non-PASS):
 
 | Category | Baseline | Now | Delta |
 |---|---:|---:|---:|
-| `brd_expression_matcher` | 51 | 81 | +30 |
+| `brd_expression_matcher` | 51 | 20 | -31 |
 | `brd_old_matcher_null_input` | 12 | 0 | -12 |
 | `brd_regex_matcher_unresolved` | 7 | 0 | -7 |
-| `brd_unordered_group` | 1 | 2 | +1 |
+| `brd_unordered_group` | 1 | 1 | +0 |
 
 ## Scope used by the real evals
 
@@ -40,37 +40,36 @@ The LLM evaluation pipeline (`tutorgym/eval/gen_ctat_compl_prof.py` → `collect
 
 | Count | Category | Description | Example |
 |------:|----------|-------------|---------|
-| 81 | `brd_expression_matcher` | BRD ExpressionMatcher on a needed edge — formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal. | `tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem1.brd` |
-| 2 | `brd_unordered_group` | BRD EdgeGroup with ordered='false' (unordered group) blocks oracle progress. FSM's _group_satisfied / add_unordered doesn't emit the right next actions. | `tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/bank-account.brd` |
+| 20 | `brd_expression_matcher` | BRD ExpressionMatcher on a needed edge — formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal. | `tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.1.brd` |
+| 1 | `brd_unordered_group` | BRD EdgeGroup with ordered='false' (unordered group) blocks oracle progress. FSM's _group_satisfied / add_unordered doesn't emit the right next actions. | `tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/bank-account.brd` |
 
 ## Examples per category (up to 3)
 
-### `brd_expression_matcher` (81)
+### `brd_expression_matcher` (20)
 
 BRD ExpressionMatcher on a needed edge — formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal.
 
-- `tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem1.brd`  (INCOMPLETE): __INCOMPLETE__ no demos available _stuck_at=22_  _brd: unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup_
-- `tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem3.brd`  (INCOMPLETE): __INCOMPLETE__ no demos available _stuck_at=14_  _brd: unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup_
-- `tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem5.brd`  (INCOMPLETE): __INCOMPLETE__ no demos available _stuck_at=20_  _brd: unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup_
+- `tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.1.brd`  (INCOMPLETE): __INCOMPLETE__ no demos available _matchers=ExactMatcher,ExpressionMatcher; stuck_at=7; in_group_  _brd: unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup_
+- `tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.2.brd`  (INCOMPLETE): __INCOMPLETE__ no demos available _matchers=ExactMatcher,ExpressionMatcher; stuck_at=7; in_group_  _brd: unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup_
+- `tutorgym/envs/CTAT/Mathtutor/8_22_HTML/FinalBRDs/02circleCirc.brd`  (INCOMPLETE): __INCOMPLETE__ no demos available _stuck_at=1_  _brd: unordered_group ExpressionMatcher MassProduction template Buggy Action_
 
-### `brd_unordered_group` (2)
+### `brd_unordered_group` (1)
 
 BRD EdgeGroup with ordered='false' (unordered group) blocks oracle progress. FSM's _group_satisfied / add_unordered doesn't emit the right next actions.
 
 - `tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/bank-account.brd`  (INCOMPLETE): __INCOMPLETE__ no demos available _matchers=ExactMatcher; stuck_at=39; in_group_  _brd: unordered_group MassProduction template multi EdgeGroup_
-- `tutorgym/envs/CTAT/Mathtutor/6_27_HTML/FinalBRDs/03sailfish.brd`  (INCOMPLETE): __INCOMPLETE__ no demos available _stuck_at=17; in_group_  _brd: unordered_group ExpressionMatcher Buggy Action multi EdgeGroup_
 
 ## Recommendations
 
 Ranked by "problems unblocked per unit of implementation effort":
 
-- **2. Implement `ExpressionMatcher.check` (expressionMatches / eval / ifThen / isVar / polyTermsEqual)** (81 problems unblocked)  
+- **2. Implement `ExpressionMatcher.check` (expressionMatches / eval / ifThen / isVar / polyTermsEqual)** (20 problems unblocked)  
   The single biggest coverage lever. `ExpressionMatcher.check` in `brd_tools.py` is literally a `TODO actually make work` returning `inp == self.value`. Mathtutor BRDs express tutor checks as `expressionMatches(input, 8*x+12)`, `polyTermsEqual(input, "3x+4")`, `ifThen(...)`, `isVar(...)`, `eval(...)`. A sympy-based evaluator covers the common cases: parse the RHS, substitute vars from `state`, compare to `inp`. Units 6_01, 8_07, 8_17, 8_22 are fully gated on this.
 
-- **4. Audit unordered-group exit logic in `fsm_tutor._group_satisfied`** (2 problem unblocked)  
+- **4. Audit unordered-group exit logic in `fsm_tutor._group_satisfied`** (1 problem unblocked)  
   Only `6_07_HTML/bank-account.brd` (unordered group + MassProduction) is stranded this way, suggesting unordered-group support is largely in place and a targeted fix suffices.
 
-If implemented in the order above, projected pass rate rises from 608/691 (88.0%) to 691/691.
+If implemented in the order above, projected pass rate rises from 670/691 (97.0%) to 691/691.
 
 ## Methodology & caveats
 
@@ -82,6 +81,8 @@ If implemented in the order above, projected pass rate rises from 608/691 (88.0%
 
 **Failure classification.** Errors are matched first by regex; `INCOMPLETE` runs are then classified from a structured diagnostic that records the stuck node id, whether it's in an edge group, the matcher classes on its outgoing edges, actor, and whether any candidate input still contains a `%(...)%` MassProduction template.
 
+**Baseline passes that were pseudo-passes.** A sweep of the baseline worktree (`7b20b8fd`) captures every demo input the oracle typed; matching those against formula fingerprints (`polyTermsEqual(`, `expressionMatches(`, `and(`, `or(`, `concat(`, `regExMatch(`, `dollarEquals(`, `equals(`) shows that **273 of baseline's 617 PASSes (~44%) typed the raw formula string as the demo**, and the loose `inp == self.value` check happened to accept it. Full data and 10 example inputs are in `docs/ctat_baseline_pseudo_pass.json`. After this round of matcher work, the honest PASS_STRICT count stands at 670, above the baseline's 617 (and well above the ~344 real baseline passes once pseudo-passes are deducted).
+
 **Why PASS_STRICT can decrease vs. baseline.** The baseline's `ExpressionMatcher.check()` was the literal `inp == self.value` with `self.value` kept as the raw formula string (e.g. `and(polyTermsEqual(input, concat(link.input, "*6")))`). The oracle typed that same raw string as its demo, and check happened to accept it — a PASS in name only. The wrong-input probe `tgym_wrong_...` didn't match the raw formula string either, so PASS_STRICT was True. Those pseudo-passes now fail honestly: the oracle extracts a real literal when possible and otherwise lets the step fail, so no synthetic demos sneak through as correct.
 
 ## Candidate units for WORKING_DOMAINS
@@ -90,10 +91,12 @@ Units where **every** problem currently passes strictly (PASS_STRICT == total) b
 
 | Unit | Problems |
 |------|---------:|
+| `6_01_HTML` | 25 |
 | `6_05_HTML` | 8 |
 | `6_06_HTML` | 9 |
 | `6_08_HTML` | 8 |
 | `6_10_HTML` | 8 |
+| `6_14_HTML` | 5 |
 | `6_16_HTML` | 35 |
 | `6_17_HTML` | 24 |
 | `6_18_HTML` | 20 |
@@ -104,11 +107,14 @@ Units where **every** problem currently passes strictly (PASS_STRICT == total) b
 | `6_25_HTML` | 12 |
 | `6_26_HTML` | 13 |
 | `6_28_HTML` | 17 |
+| `7_01_HTML` | 9 |
 | `7_02_HTML` | 10 |
+| `7_04_HTML` | 10 |
 | `7_05_HTML` | 8 |
 | `7_06_HTML` | 10 |
 | `7_10_HTML` | 9 |
 | `7_12_HTML` | 17 |
+| `7_15_HTML` | 11 |
 | `7_16_HTML` | 8 |
 | `7_50_HTML` | 8 |
 | `7_51_HTML` | 8 |
@@ -117,6 +123,7 @@ Units where **every** problem currently passes strictly (PASS_STRICT == total) b
 | `7_54_HTML` | 13 |
 | `8_05_HTML` | 10 |
 | `8_06_HTML` | 8 |
+| `8_09_HTML` | 10 |
 | `8_11_HTML` | 17 |
 | `8_12_HTML` | 19 |
 | `8_14_HTML` | 8 |
@@ -130,7 +137,7 @@ Units where **every** problem currently passes strictly (PASS_STRICT == total) b
 
 | Unit | Total | PASS | PASS_STRICT | LOAD_FAIL | STEP_FAIL | INCOMPLETE |
 |------|------:|-----:|------------:|----------:|----------:|-----------:|
-| 6_01_HTML | 25 | 12 | 12 | 0 | 5 | 8 |
+| 6_01_HTML | 25 | 25 | 25 | 0 | 0 | 0 |
 | 6_02_HTML | 11 | 11 | 11 | 0 | 0 | 0 |
 | 6_05_HTML | 8 | 8 | 8 | 0 | 0 | 0 |
 | 6_06_HTML | 9 | 9 | 9 | 0 | 0 | 0 |
@@ -139,7 +146,7 @@ Units where **every** problem currently passes strictly (PASS_STRICT == total) b
 | 6_09_HTML | 5 | 5 | 5 | 0 | 0 | 0 |
 | 6_10_HTML | 8 | 8 | 8 | 0 | 0 | 0 |
 | 6_11_HTML | 27 | 27 | 27 | 0 | 0 | 0 |
-| 6_14_HTML | 5 | 2 | 2 | 0 | 3 | 0 |
+| 6_14_HTML | 5 | 5 | 5 | 0 | 0 | 0 |
 | 6_15_HTML | 9 | 9 | 9 | 0 | 0 | 0 |
 | 6_16_HTML | 35 | 35 | 35 | 0 | 0 | 0 |
 | 6_17_HTML | 24 | 24 | 24 | 0 | 0 | 0 |
@@ -150,18 +157,18 @@ Units where **every** problem currently passes strictly (PASS_STRICT == total) b
 | 6_24_HTML | 17 | 17 | 17 | 0 | 0 | 0 |
 | 6_25_HTML | 12 | 12 | 12 | 0 | 0 | 0 |
 | 6_26_HTML | 13 | 13 | 13 | 0 | 0 | 0 |
-| 6_27_HTML | 15 | 14 | 14 | 0 | 0 | 1 |
+| 6_27_HTML | 15 | 15 | 15 | 0 | 0 | 0 |
 | 6_28_HTML | 17 | 17 | 17 | 0 | 0 | 0 |
 | 6_30_HTML | 11 | 11 | 11 | 0 | 0 | 0 |
 | 6_34_HTML | 32 | 32 | 32 | 0 | 0 | 0 |
-| 7_01_HTML | 9 | 1 | 1 | 0 | 8 | 0 |
+| 7_01_HTML | 9 | 9 | 9 | 0 | 0 | 0 |
 | 7_02_HTML | 10 | 10 | 10 | 0 | 0 | 0 |
-| 7_04_HTML | 10 | 0 | 0 | 0 | 10 | 0 |
+| 7_04_HTML | 10 | 10 | 10 | 0 | 0 | 0 |
 | 7_05_HTML | 8 | 8 | 8 | 0 | 0 | 0 |
 | 7_06_HTML | 10 | 10 | 10 | 0 | 0 | 0 |
 | 7_10_HTML | 9 | 9 | 9 | 0 | 0 | 0 |
 | 7_12_HTML | 17 | 17 | 17 | 0 | 0 | 0 |
-| 7_15_HTML | 11 | 0 | 0 | 0 | 11 | 0 |
+| 7_15_HTML | 11 | 11 | 11 | 0 | 0 | 0 |
 | 7_16_HTML | 8 | 8 | 8 | 0 | 0 | 0 |
 | 7_50_HTML | 8 | 8 | 8 | 0 | 0 | 0 |
 | 7_51_HTML | 8 | 8 | 8 | 0 | 0 | 0 |
@@ -170,8 +177,8 @@ Units where **every** problem currently passes strictly (PASS_STRICT == total) b
 | 7_54_HTML | 13 | 13 | 13 | 0 | 0 | 0 |
 | 8_05_HTML | 10 | 10 | 10 | 0 | 0 | 0 |
 | 8_06_HTML | 8 | 8 | 8 | 0 | 0 | 0 |
-| 8_07_HTML | 8 | 0 | 0 | 0 | 6 | 2 |
-| 8_09_HTML | 10 | 0 | 0 | 0 | 10 | 0 |
+| 8_07_HTML | 8 | 6 | 6 | 0 | 0 | 2 |
+| 8_09_HTML | 10 | 10 | 10 | 0 | 0 | 0 |
 | 8_11_HTML | 17 | 17 | 17 | 0 | 0 | 0 |
 | 8_12_HTML | 19 | 19 | 19 | 0 | 0 | 0 |
 | 8_14_HTML | 8 | 8 | 8 | 0 | 0 | 0 |

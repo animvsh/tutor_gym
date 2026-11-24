@@ -624,9 +624,21 @@ def run_with_timeout(html_path: str, model_path: str, timeout: float) -> dict:
 # ---------------------------------------------------------------------------
 # : Driver
 
-def main() -> int:
+def main(argv=None) -> int:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--units", nargs="*", default=None,
+                    help="Only run problems in these units (e.g. 7_04_HTML).")
+    ap.add_argument("--skip-report", action="store_true",
+                    help="Run problems but don't overwrite docs/ctat_coverage.md.")
+    args = ap.parse_args(argv)
+
     print("Enumerating problems...")
     problems = enumerate_problems()
+    if args.units:
+        units = set(args.units)
+        problems = [p for p in problems if p["unit"] in units]
+        print(f"  filtered to units {sorted(units)} → {len(problems)} problems")
     print(f"  {len(problems)} problems across {len({p['unit'] for p in problems})} units")
 
     # Pre-render every distinct HTML once up front (sequential, no browser needed).
@@ -705,7 +717,8 @@ def main() -> int:
             r["category"] = classify_result(r)
         r["category_desc"] = CAT_DESCRIPTIONS.get(r["category"], r["category"])
 
-    write_outputs(results)
+    if not args.skip_report and not args.units:
+        write_outputs(results)
     print_summary(results)
     return 0
 
@@ -957,6 +970,19 @@ def write_outputs(results: list[dict]) -> None:
         "that records the stuck node id, whether it's in an edge group, the "
         "matcher classes on its outgoing edges, actor, and whether any "
         "candidate input still contains a `%(...)%` MassProduction template.\n\n"
+        "**Baseline passes that were pseudo-passes.** A sweep of the "
+        "baseline worktree (`7b20b8fd`) captures every demo input the "
+        "oracle typed; matching those against formula fingerprints "
+        "(`polyTermsEqual(`, `expressionMatches(`, `and(`, `or(`, "
+        "`concat(`, `regExMatch(`, `dollarEquals(`, `equals(`) shows "
+        "that **273 of baseline's 617 PASSes (~44%) typed the raw "
+        "formula string as the demo**, and the loose "
+        "`inp == self.value` check happened to accept it. Full data "
+        "and 10 example inputs are in "
+        "`docs/ctat_baseline_pseudo_pass.json`. After this round of "
+        "matcher work, the honest PASS_STRICT count stands at 670, "
+        "above the baseline's 617 (and well above the ~344 real "
+        "baseline passes once pseudo-passes are deducted).\n\n"
         "**Why PASS_STRICT can decrease vs. baseline.** The baseline's "
         "`ExpressionMatcher.check()` was the literal `inp == self.value` "
         "with `self.value` kept as the raw formula string (e.g. "

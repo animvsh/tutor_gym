@@ -1,0 +1,56 @@
+{
+  "total_pass": 617,
+  "pseudo_pass": 273,
+  "examples": [
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem14",
+      "input": "and(polyTermsEqual(input, \"10+20\"),constantsDollar(input))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem7",
+      "input": "and(polyTermsEqual(input,\"12/6\"))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem10",
+      "input": "and(polyTermsEqual(input,\"5*3+20\",\"(5*3)+20\"),constantsDollar(input))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem15",
+      "input": "and(polyTermsEqual(input, \"7*5\"),constantsDollar(input))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem16",
+      "input": "and(polyTermsEqual(input, \"2*6\"))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem17",
+      "input": "and(polyTermsEqual(input, \"45-35\"))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem18",
+      "input": "and(polyTermsEqual(input, \"60/15\"))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem19",
+      "input": "and(polyTermsEqual(input, \"3*2\"))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem20",
+      "input": "and(polyTermsEqual(input, \"(12*3)+24\",\"12*3+24\"))"
+    },
+    {
+      "unit": "6_01_HTML",
+      "problem": "Problem21",
+      "input": "and(polyTermsEqual(input, \"(4*2)+15\",\"4*2+15\"),constantsDollar(input))"
+    }
+  ]
+}

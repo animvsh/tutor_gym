@@ -2,28 +2,16 @@
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem1.brd",
-    "status": "INCOMPLETE",
-    "steps": 1,
+    "status": "PASS",
+    "steps": 4,
     "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "22",
-      "stuck_no_outgoing": true,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [],
-      "stuck_action_types": [],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem1",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
@@ -41,41 +29,29 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem3.brd",
-    "status": "INCOMPLETE",
-    "steps": 1,
-    "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
-    "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "14",
-      "stuck_no_outgoing": true,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [],
-      "stuck_action_types": [],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
-    "unit": "6_01_HTML",
-    "problem_name": "Problem3",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem2.brd",
     "status": "PASS",
-    "steps": 10,
+    "steps": 9,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
     "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem2",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem3.brd",
+    "status": "PASS",
+    "steps": 12,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_01_HTML",
+    "problem_name": "Problem3",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -96,28 +72,30 @@
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem5.brd",
-    "status": "INCOMPLETE",
-    "steps": 1,
+    "status": "PASS",
+    "steps": 10,
     "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "20",
-      "stuck_no_outgoing": true,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [],
-      "stuck_action_types": [],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem5",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem7.brd",
+    "status": "PASS",
+    "steps": 10,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_01_HTML",
+    "problem_name": "Problem7",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
@@ -135,61 +113,23 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem7.brd",
-    "status": "INCOMPLETE",
-    "steps": 4,
-    "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
-    "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "16",
-      "stuck_no_outgoing": true,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [],
-      "stuck_action_types": [],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
-    "unit": "6_01_HTML",
-    "problem_name": "Problem7",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem9.brd",
-    "status": "INCOMPLETE",
-    "steps": 1,
+    "status": "PASS",
+    "steps": 10,
     "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "14",
-      "stuck_no_outgoing": true,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [],
-      "stuck_action_types": [],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem9",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem8.brd",
     "status": "PASS",
-    "steps": 11,
+    "steps": 10,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -201,81 +141,45 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem11.brd",
-    "status": "INCOMPLETE",
-    "steps": 1,
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem10.brd",
+    "status": "PASS",
+    "steps": 10,
     "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "14",
-      "stuck_no_outgoing": true,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [],
-      "stuck_action_types": [],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
-    "problem_name": "Problem11",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "problem_name": "Problem10",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem10.brd",
-    "status": "INCOMPLETE",
-    "steps": 4,
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem11.brd",
+    "status": "PASS",
+    "steps": 12,
     "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "16",
-      "stuck_no_outgoing": true,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [],
-      "stuck_action_types": [],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
-    "problem_name": "Problem10",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "problem_name": "Problem11",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem12.brd",
-    "status": "INCOMPLETE",
-    "steps": 7,
+    "status": "PASS",
+    "steps": 10,
     "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "18",
-      "stuck_no_outgoing": true,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [],
-      "stuck_action_types": [],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem12",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-4.html",
@@ -308,162 +212,72 @@
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem16.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(thirdmid, and(polyTermsEqual(input, concat(link13.input, \"*6\") ))) on step 7",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "8",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem16",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem17.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(thirdmid, and(polyTermsEqual(input, concat(link13.input, \"-35\") ))) on step 7",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "8",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem17",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem18.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(thirdmid, and(polyTermsEqual(input, concat(link13.input, \"/15\") ))) on step 7",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "8",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem18",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem19.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(thirdmid, and(polyTermsEqual(input, concat(link13.input, \"*2\") ))) on step 7",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "8",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem19",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem20.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(thirdmid, and(polyTermsEqual(input, concat(\"(12*\", link13.input, \")+24\") , concat(\"12*\", link13.input, \"+24\")))) on step 7",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "8",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": false,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_01_HTML",
     "problem_name": "Problem20",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
@@ -536,20 +350,6 @@
     "category_desc": "Loaded and completed via oracle"
   },
   {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem25.brd",
-    "status": "PASS",
-    "steps": 15,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_01_HTML",
-    "problem_name": "Problem25",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_02_HTML/HTML/6.02.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_02_HTML/FinalBRDs/Problem1.brd",
     "status": "PASS",
@@ -560,6 +360,20 @@
     "strict_ok": true,
     "unit": "6_02_HTML",
     "problem_name": "Problem1",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/HTML/6.01-5.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_01_HTML/FinalBRDs/Problem25.brd",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_01_HTML",
+    "problem_name": "Problem25",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -914,24 +728,10 @@
     "category_desc": "Loaded and completed via oracle"
   },
   {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_06_HTML/HTML/6.06.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_06_HTML/FinalBRDs/1-amy.brd",
-    "status": "PASS",
-    "steps": 5,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_06_HTML",
-    "problem_name": "1-amy",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/HTML/6.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/bank-account.brd",
     "status": "INCOMPLETE",
-    "steps": 10,
+    "steps": 11,
     "error_class": null,
     "error_msg": "__INCOMPLETE__ no demos available",
     "phase": "step",
@@ -960,10 +760,24 @@
     "category_desc": "BRD EdgeGroup with ordered='false' (unordered group) blocks oracle progress. FSM's _group_satisfied / add_unordered doesn't emit the right next actions."
   },
   {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_06_HTML/HTML/6.06.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_06_HTML/FinalBRDs/1-amy.brd",
+    "status": "PASS",
+    "steps": 5,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_06_HTML",
+    "problem_name": "1-amy",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/HTML/6.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/entertainment.brd",
     "status": "PASS",
-    "steps": 23,
+    "steps": 22,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -977,7 +791,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/HTML/6.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/fleece.brd",
     "status": "PASS",
-    "steps": 19,
+    "steps": 18,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -991,7 +805,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/HTML/6.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/gardening.brd",
     "status": "PASS",
-    "steps": 19,
+    "steps": 24,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -1005,7 +819,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/HTML/6.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/post-office.brd",
     "status": "PASS",
-    "steps": 17,
+    "steps": 25,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -1017,29 +831,29 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/HTML/6.07.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/vacation.brd",
-    "status": "PASS",
-    "steps": 21,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_07_HTML",
-    "problem_name": "vacation",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/HTML/6.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/softball.brd",
     "status": "PASS",
-    "steps": 21,
+    "steps": 24,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
     "strict_ok": true,
     "unit": "6_07_HTML",
     "problem_name": "softball",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/HTML/6.07.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_07_HTML/FinalBRDs/vacation.brd",
+    "status": "PASS",
+    "steps": 19,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_07_HTML",
+    "problem_name": "vacation",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -1187,7 +1001,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_09_HTML/HTML/6.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_09_HTML/FinalBRDs/postoffice.brd",
     "status": "PASS",
-    "steps": 17,
+    "steps": 16,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -1201,7 +1015,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_09_HTML/HTML/6.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_09_HTML/FinalBRDs/groundhog.brd",
     "status": "PASS",
-    "steps": 19,
+    "steps": 17,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -1215,7 +1029,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_09_HTML/HTML/6.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_09_HTML/FinalBRDs/roadtrip.brd",
     "status": "PASS",
-    "steps": 26,
+    "steps": 25,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -1647,20 +1461,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_11_HTML/HTML/6.11.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_11_HTML/FinalBRDs/p23.brd",
-    "status": "PASS",
-    "steps": 33,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_11_HTML",
-    "problem_name": "p23",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_11_HTML/HTML/6.11.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_11_HTML/FinalBRDs/p22.brd",
     "status": "PASS",
     "steps": 14,
@@ -1670,6 +1470,20 @@
     "strict_ok": true,
     "unit": "6_11_HTML",
     "problem_name": "p22",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_11_HTML/HTML/6.11.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_11_HTML/FinalBRDs/p23.brd",
+    "status": "PASS",
+    "steps": 33,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_11_HTML",
+    "problem_name": "p23",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -1732,66 +1546,30 @@
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_14_HTML/HTML/6.14.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_14_HTML/FinalBRDs/s2p1.brd",
-    "status": "STEP_FAIL",
-    "steps": 6,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, expressionMatches(\n    input, \n    concat(variable,\"/0.8\")\n)) on step 6",
+    "status": "PASS",
+    "steps": 9,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher MassProduction template Buggy Action",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_14_HTML",
     "problem_name": "s2p1",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_14_HTML/HTML/6.14.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_14_HTML/FinalBRDs/s2p2.brd",
-    "status": "STEP_FAIL",
-    "steps": 6,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, expressionMatches(\n    input, \n    concat(variable,\"/0.25\")\n)) on step 6",
+    "status": "PASS",
+    "steps": 9,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher MassProduction template Buggy Action",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_14_HTML",
     "problem_name": "s2p2",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_14_HTML/HTML/6.14.html",
@@ -1810,34 +1588,16 @@
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_14_HTML/HTML/6.14.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_14_HTML/FinalBRDs/s2p4.brd",
-    "status": "STEP_FAIL",
-    "steps": 6,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, expressionMatches(\n    input, \n    concat(variable,\"/0.75\")\n)) on step 6",
+    "status": "PASS",
+    "steps": 9,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher MassProduction template Buggy Action",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_14_HTML",
     "problem_name": "s2p4",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_15_HTML/HTML/6.15.html",
@@ -2877,20 +2637,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/08_2.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_18_HTML",
-    "problem_name": "08_2",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/07_2.brd",
     "status": "PASS",
     "steps": 8,
@@ -2900,6 +2646,20 @@
     "strict_ok": true,
     "unit": "6_18_HTML",
     "problem_name": "07_2",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/08_2.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_18_HTML",
+    "problem_name": "08_2",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -2933,20 +2693,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/12_1.brd",
-    "status": "PASS",
-    "steps": 5,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_18_HTML",
-    "problem_name": "12_1",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/11_1.brd",
     "status": "PASS",
     "steps": 5,
@@ -2961,15 +2707,15 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/13_2.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/12_1.brd",
     "status": "PASS",
-    "steps": 8,
+    "steps": 5,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
     "strict_ok": true,
     "unit": "6_18_HTML",
-    "problem_name": "13_2",
+    "problem_name": "12_1",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -2984,6 +2730,20 @@
     "strict_ok": true,
     "unit": "6_18_HTML",
     "problem_name": "14_2",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/13_2.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_18_HTML",
+    "problem_name": "13_2",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3017,20 +2777,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/17_2.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_18_HTML",
-    "problem_name": "17_2",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/18_2.brd",
     "status": "PASS",
     "steps": 8,
@@ -3040,6 +2786,20 @@
     "strict_ok": true,
     "unit": "6_18_HTML",
     "problem_name": "18_2",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/HTML/6.18.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_18_HTML/FinalBRDs/17_2.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_18_HTML",
+    "problem_name": "17_2",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3073,20 +2833,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/00bubble.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_19_HTML",
-    "problem_name": "00bubble",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/01tv.brd",
     "status": "PASS",
     "steps": 8,
@@ -3101,7 +2847,7 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/02tv.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/00bubble.brd",
     "status": "PASS",
     "steps": 8,
     "error_class": null,
@@ -3109,7 +2855,7 @@
     "phase": "step",
     "strict_ok": true,
     "unit": "6_19_HTML",
-    "problem_name": "02tv",
+    "problem_name": "00bubble",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3124,6 +2870,20 @@
     "strict_ok": true,
     "unit": "6_19_HTML",
     "problem_name": "03football",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/02tv.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_19_HTML",
+    "problem_name": "02tv",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3157,20 +2917,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/06boyschool.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_19_HTML",
-    "problem_name": "06boyschool",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/07tomato.brd",
     "status": "PASS",
     "steps": 14,
@@ -3185,15 +2931,15 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/08bowl.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/06boyschool.brd",
     "status": "PASS",
-    "steps": 14,
+    "steps": 8,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
     "strict_ok": true,
     "unit": "6_19_HTML",
-    "problem_name": "08bowl",
+    "problem_name": "06boyschool",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3213,7 +2959,7 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/10highlighters.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/08bowl.brd",
     "status": "PASS",
     "steps": 14,
     "error_class": null,
@@ -3221,7 +2967,7 @@
     "phase": "step",
     "strict_ok": true,
     "unit": "6_19_HTML",
-    "problem_name": "10highlighters",
+    "problem_name": "08bowl",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3241,15 +2987,15 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/12park.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/10highlighters.brd",
     "status": "PASS",
-    "steps": 8,
+    "steps": 14,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
     "strict_ok": true,
     "unit": "6_19_HTML",
-    "problem_name": "12park",
+    "problem_name": "10highlighters",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3269,7 +3015,7 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/14ex.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/12park.brd",
     "status": "PASS",
     "steps": 8,
     "error_class": null,
@@ -3277,7 +3023,7 @@
     "phase": "step",
     "strict_ok": true,
     "unit": "6_19_HTML",
-    "problem_name": "14ex",
+    "problem_name": "12park",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3297,15 +3043,15 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/16muffin.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/14ex.brd",
     "status": "PASS",
-    "steps": 14,
+    "steps": 8,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
     "strict_ok": true,
     "unit": "6_19_HTML",
-    "problem_name": "16muffin",
+    "problem_name": "14ex",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3325,15 +3071,15 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/18dozen.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/16muffin.brd",
     "status": "PASS",
-    "steps": 8,
+    "steps": 14,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
     "strict_ok": true,
     "unit": "6_19_HTML",
-    "problem_name": "18dozen",
+    "problem_name": "16muffin",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3348,6 +3094,20 @@
     "strict_ok": true,
     "unit": "6_19_HTML",
     "problem_name": "19gum",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/18dozen.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_19_HTML",
+    "problem_name": "18dozen",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3380,20 +3140,6 @@
     "category_desc": "Loaded and completed via oracle"
   },
   {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/22water.brd",
-    "status": "PASS",
-    "steps": 14,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_19_HTML",
-    "problem_name": "22water",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/01book.brd",
     "status": "PASS",
@@ -3404,6 +3150,20 @@
     "strict_ok": true,
     "unit": "6_20_HTML",
     "problem_name": "01book",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/HTML/6.19.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_19_HTML/FinalBRDs/22water.brd",
+    "status": "PASS",
+    "steps": 14,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_19_HTML",
+    "problem_name": "22water",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3437,20 +3197,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/04school.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_20_HTML",
-    "problem_name": "04school",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/05height.brd",
     "status": "PASS",
     "steps": 8,
@@ -3460,6 +3206,20 @@
     "strict_ok": true,
     "unit": "6_20_HTML",
     "problem_name": "05height",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/04school.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_20_HTML",
+    "problem_name": "04school",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3521,20 +3281,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/10homework.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_20_HTML",
-    "problem_name": "10homework",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/11pizza.brd",
     "status": "PASS",
     "steps": 8,
@@ -3544,6 +3290,20 @@
     "strict_ok": true,
     "unit": "6_20_HTML",
     "problem_name": "11pizza",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/10homework.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_20_HTML",
+    "problem_name": "10homework",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3577,20 +3337,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/14candy.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_20_HTML",
-    "problem_name": "14candy",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/15sauce.brd",
     "status": "PASS",
     "steps": 8,
@@ -3605,7 +3351,7 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/16chemistry.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/14candy.brd",
     "status": "PASS",
     "steps": 8,
     "error_class": null,
@@ -3613,7 +3359,7 @@
     "phase": "step",
     "strict_ok": true,
     "unit": "6_20_HTML",
-    "problem_name": "16chemistry",
+    "problem_name": "14candy",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -3628,6 +3374,20 @@
     "strict_ok": true,
     "unit": "6_20_HTML",
     "problem_name": "17salad",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/HTML/6.20.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_20_HTML/FinalBRDs/16chemistry.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_20_HTML",
+    "problem_name": "16chemistry",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -4069,7 +3829,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/HTML/6.25.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/FinalBRDs/GCF-8_44.brd",
     "status": "PASS",
-    "steps": 38,
+    "steps": 37,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -4083,7 +3843,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/HTML/6.25.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/FinalBRDs/GCF-9_21.brd",
     "status": "PASS",
-    "steps": 35,
+    "steps": 33,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -4097,7 +3857,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/HTML/6.25.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/FinalBRDs/GCF-13_26.brd",
     "status": "PASS",
-    "steps": 34,
+    "steps": 33,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -4139,7 +3899,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/HTML/6.25.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/FinalBRDs/GCF-20_30.brd",
     "status": "PASS",
-    "steps": 42,
+    "steps": 41,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -4153,7 +3913,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/HTML/6.25.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/FinalBRDs/GCF-25_75.brd",
     "status": "PASS",
-    "steps": 37,
+    "steps": 35,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -4195,7 +3955,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/HTML/6.25.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_25_HTML/FinalBRDs/GCF-36_39.brd",
     "status": "PASS",
-    "steps": 40,
+    "steps": 39,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -4263,20 +4023,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_26_HTML/HTML/6.26.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_26_HTML/FinalBRDs/Cookout.brd",
-    "status": "PASS",
-    "steps": 28,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_26_HTML",
-    "problem_name": "Cookout",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_26_HTML/HTML/6.26.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_26_HTML/FinalBRDs/Find1.brd",
     "status": "PASS",
     "steps": 28,
@@ -4286,6 +4032,20 @@
     "strict_ok": true,
     "unit": "6_26_HTML",
     "problem_name": "Find1",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_26_HTML/HTML/6.26.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_26_HTML/FinalBRDs/Cookout.brd",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_26_HTML",
+    "problem_name": "Cookout",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -4405,7 +4165,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_27_HTML/HTML/6.27.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_27_HTML/FinalBRDs/02marble.brd",
     "status": "PASS",
-    "steps": 5,
+    "steps": 8,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -4418,32 +4178,16 @@
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_27_HTML/HTML/6.27.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_27_HTML/FinalBRDs/03sailfish.brd",
-    "status": "INCOMPLETE",
-    "steps": 2,
+    "status": "PASS",
+    "steps": 8,
     "error_class": null,
-    "error_msg": "__INCOMPLETE__ no demos available",
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "17",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "6_27_HTML",
     "problem_name": "03sailfish",
-    "category": "brd_unordered_group",
-    "category_desc": "BRD EdgeGroup with ordered='false' (unordered group) blocks oracle progress. FSM's _group_satisfied / add_unordered doesn't emit the right next actions."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_27_HTML/HTML/6.27.html",
@@ -5315,20 +5059,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/HTML/6.34.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/FinalBRDs/t23.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "6_34_HTML",
-    "problem_name": "t23",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/HTML/6.34.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/FinalBRDs/t24.brd",
     "status": "PASS",
     "steps": 8,
@@ -5343,7 +5073,7 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/HTML/6.34.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/FinalBRDs/t25.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/FinalBRDs/t23.brd",
     "status": "PASS",
     "steps": 8,
     "error_class": null,
@@ -5351,7 +5081,7 @@
     "phase": "step",
     "strict_ok": true,
     "unit": "6_34_HTML",
-    "problem_name": "t25",
+    "problem_name": "t23",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -5366,6 +5096,20 @@
     "strict_ok": true,
     "unit": "6_34_HTML",
     "problem_name": "t26",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/HTML/6.34.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/6_34_HTML/FinalBRDs/t25.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "6_34_HTML",
+    "problem_name": "t25",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -5455,39 +5199,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem2.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(exp2, polyTermsEqual(input, concat(link13.input,\"8\"))) on step 0",
-    "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "8",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
-    "unit": "7_01_HTML",
-    "problem_name": "Problem2",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem1.brd",
     "status": "PASS",
     "steps": 4,
@@ -5502,234 +5213,101 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem3.brd",
-    "status": "STEP_FAIL",
-    "steps": 4,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(exp2, polyTermsEqual(input, concat(link13.input,\"*9\"))) on step 4",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem2.brd",
+    "status": "PASS",
+    "steps": 9,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_01_HTML",
-    "problem_name": "Problem3",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "problem_name": "Problem2",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem4.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(exp2, polyTermsEqual(input, concat(link13.input,\"3\"))) on step 7",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_01_HTML",
     "problem_name": "Problem4",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem5.brd",
-    "status": "STEP_FAIL",
-    "steps": 6,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(exp2, polyTermsEqual(input, concat(link13.input,\"-5\"))) on step 6",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem3.brd",
+    "status": "PASS",
+    "steps": 12,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "4",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExactMatcher",
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_01_HTML",
-    "problem_name": "Problem5",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "problem_name": "Problem3",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem6.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(exp2, polyTermsEqual(input, concat(link13.input,\"/12\"))) on step 7",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_01_HTML",
     "problem_name": "Problem6",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem7.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(exp2, polyTermsEqual(input, concat(link13.input,\"/4\"))) on step 7",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem5.brd",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_01_HTML",
-    "problem_name": "Problem7",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "problem_name": "Problem5",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem8.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(exp2, polyTermsEqual(input, concat(link13.input,\"16\"))) on step 7",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_01_HTML",
     "problem_name": "Problem8",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem9.brd",
-    "status": "STEP_FAIL",
-    "steps": 7,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(exp2, polyTermsEqual(input, concat(link13.input,\"*5\"))) on step 7",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem7.brd",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher multi EdgeGroup",
-      "stuck_unique_id": "7",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_01_HTML",
-    "problem_name": "Problem9",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "problem_name": "Problem7",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_02_HTML/HTML/7.02.html",
@@ -5742,6 +5320,20 @@
     "strict_ok": true,
     "unit": "7_02_HTML",
     "problem_name": "Problem1",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/HTML/7.01.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_01_HTML/FinalBRDs/Problem9.brd",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "7_01_HTML",
+    "problem_name": "Problem9",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -5858,39 +5450,6 @@
     "category_desc": "Loaded and completed via oracle"
   },
   {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem2.brd",
-    "status": "STEP_FAIL",
-    "steps": 1,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"/4 + 150\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"/4 + 150\",\")\")))) on step 1",
-    "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
-    "unit": "7_04_HTML",
-    "problem_name": "Problem 2",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
-  },
-  {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_02_HTML/HTML/7.02.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_02_HTML/FinalBRDs/Problem10.brd",
     "status": "PASS",
@@ -5906,300 +5465,143 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem3.brd",
-    "status": "STEP_FAIL",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem2.brd",
+    "status": "PASS",
     "steps": 3,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"*10 - 1200\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"*10 - 1200\",\")\")))) on step 3",
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
+    "unit": "7_04_HTML",
+    "problem_name": "Problem 2",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem3.brd",
+    "status": "PASS",
+    "steps": 6,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 3",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem4.brd",
-    "status": "STEP_FAIL",
-    "steps": 8,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"*5 + 3\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"*5 + 3\",\")\")))) on step 8",
+    "status": "PASS",
+    "steps": 10,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 4",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem5.brd",
-    "status": "STEP_FAIL",
-    "steps": 13,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"/13 - 3\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"/13 - 3\",\")\")))) on step 13",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 5",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem6.brd",
-    "status": "STEP_FAIL",
-    "steps": 13,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"*5 - 50\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"*5 - 50\",\")\")))) on step 13",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 6",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem7.brd",
-    "status": "STEP_FAIL",
-    "steps": 13,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"*2 + 1300\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"*2 + 1300\",\")\")))) on step 13",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 7",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem8.brd",
-    "status": "STEP_FAIL",
-    "steps": 12,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"*1.5 + 16\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"*1.5 + 16\",\")\")))) on step 12",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 8",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem9.brd",
-    "status": "STEP_FAIL",
-    "steps": 12,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"*6 - 33\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"*6 - 33\",\")\")))) on step 12",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 9",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem10.brd",
-    "status": "STEP_FAIL",
-    "steps": 13,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"/3 - 12\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"/3 - 12\",\")\")))) on step 13",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 10",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/HTML/7.04.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_04_HTML/FinalBRDs/Problem1.brd",
-    "status": "STEP_FAIL",
-    "steps": 13,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(expression, or(polyTermsEqual(input,concat(link25.input,\"*10 + 20\")),\npolyTermsEqual(input,concat(\"(\",link25.input,\"*10 + 20\",\")\")))) on step 13",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_04_HTML",
     "problem_name": "Problem 1",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_05_HTML/HTML/7.05.html",
@@ -6331,7 +5733,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/HTML/7.06.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/FinalBRDs/02grapher.brd",
     "status": "PASS",
-    "steps": 105,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6345,7 +5747,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/HTML/7.06.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/FinalBRDs/03grapher.brd",
     "status": "PASS",
-    "steps": 105,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6359,7 +5761,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/HTML/7.06.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/FinalBRDs/04grapher.brd",
     "status": "PASS",
-    "steps": 105,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6415,7 +5817,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/HTML/7.06.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/FinalBRDs/08grapher.brd",
     "status": "PASS",
-    "steps": 106,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6429,7 +5831,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/HTML/7.06.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_06_HTML/FinalBRDs/09grapher.brd",
     "status": "PASS",
-    "steps": 105,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6457,7 +5859,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/02negativeslope.brd",
     "status": "PASS",
-    "steps": 105,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6471,7 +5873,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/01negativeslope.brd",
     "status": "PASS",
-    "steps": 106,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6499,7 +5901,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/04negativeslope.brd",
     "status": "PASS",
-    "steps": 105,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6513,7 +5915,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/05negativeslope.brd",
     "status": "PASS",
-    "steps": 106,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6527,7 +5929,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/06negativeslope.brd",
     "status": "PASS",
-    "steps": 106,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6541,7 +5943,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/07negativeslope.brd",
     "status": "PASS",
-    "steps": 105,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6555,7 +5957,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/08negativeslope.brd",
     "status": "PASS",
-    "steps": 106,
+    "steps": 104,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6583,7 +5985,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_12_HTML/HTML/7.12.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_12_HTML/FinalBRDs/02Water.brd",
     "status": "PASS",
-    "steps": 7,
+    "steps": 10,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6597,7 +5999,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_12_HTML/HTML/7.12.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_12_HTML/FinalBRDs/03Cookies.brd",
     "status": "PASS",
-    "steps": 9,
+    "steps": 10,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6611,7 +6013,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_12_HTML/HTML/7.12.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_12_HTML/FinalBRDs/04Bicyclist.brd",
     "status": "PASS",
-    "steps": 9,
+    "steps": 10,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6751,7 +6153,7 @@
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_12_HTML/HTML/7.12.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_12_HTML/FinalBRDs/14Snail.brd",
     "status": "PASS",
-    "steps": 9,
+    "steps": 10,
     "error_class": null,
     "error_msg": null,
     "phase": "step",
@@ -6806,355 +6208,156 @@
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/1.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(fourthMid2, .*[\\+\\-\\*\\/].*) on step 0",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "65",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student",
-        "tutor"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "1",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/2.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_2_totalCost2_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 0",
+    "status": "PASS",
+    "steps": 22,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "45",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "2",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/3.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row4_1_totalCost1_4, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 0",
+    "status": "PASS",
+    "steps": 29,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "16",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "3",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/4.brd",
-    "status": "STEP_FAIL",
-    "steps": 3,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_1_totalCost1_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 3",
+    "status": "PASS",
+    "steps": 44,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher MassProduction template Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "2",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "4",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/5.brd",
-    "status": "STEP_FAIL",
-    "steps": 1,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_1_totalCost1_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 1",
+    "status": "PASS",
+    "steps": 44,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "2",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "5",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/6.brd",
-    "status": "STEP_FAIL",
-    "steps": 5,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_1_totalCost1_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 5",
+    "status": "PASS",
+    "steps": 44,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher MassProduction template Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "2",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "6",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/7.brd",
-    "status": "STEP_FAIL",
-    "steps": 3,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_1_totalCost1_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 3",
+    "status": "PASS",
+    "steps": 44,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "2",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "7",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/8.brd",
-    "status": "STEP_FAIL",
-    "steps": 4,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_1_totalCost1_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 4",
+    "status": "PASS",
+    "steps": 44,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "2",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "8",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/9.brd",
-    "status": "STEP_FAIL",
-    "steps": 1,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_1_totalCost1_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 1",
+    "status": "PASS",
+    "steps": 44,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "2",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "9",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/10.brd",
-    "status": "STEP_FAIL",
-    "steps": 3,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_1_totalCost1_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 3",
+    "status": "PASS",
+    "steps": 44,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "2",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "10",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/HTML/7.15.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_15_HTML/FinalBRDs/11.brd",
-    "status": "STEP_FAIL",
-    "steps": 3,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(row2_1_totalCost1_2, .*[\\\\-\\\\+\\\\*\\\\/].*) on step 3",
+    "status": "PASS",
+    "steps": 44,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "2",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "7_15_HTML",
     "problem_name": "11",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_16_HTML/HTML/7.16.html",
@@ -7199,6 +6402,20 @@
     "category_desc": "Loaded and completed via oracle"
   },
   {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/09negativeslope.brd",
+    "status": "PASS",
+    "steps": 104,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "7_10_HTML",
+    "problem_name": "09negativeslope",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_16_HTML/HTML/7.16.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_16_HTML/FinalBRDs/Problem2.brd",
     "status": "PASS",
@@ -7237,20 +6454,6 @@
     "strict_ok": true,
     "unit": "7_16_HTML",
     "problem_name": "Problem4",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/HTML/7.10.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_10_HTML/FinalBRDs/09negativeslope.brd",
-    "status": "PASS",
-    "steps": 105,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "7_10_HTML",
-    "problem_name": "09negativeslope",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -7354,20 +6557,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_50_HTML/HTML/7.50.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_50_HTML/FinalBRDs/one6.brd",
-    "status": "PASS",
-    "steps": 8,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "7_50_HTML",
-    "problem_name": "one6",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_50_HTML/HTML/7.50.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_50_HTML/FinalBRDs/one7.brd",
     "status": "PASS",
     "steps": 8,
@@ -7377,6 +6566,20 @@
     "strict_ok": true,
     "unit": "7_50_HTML",
     "problem_name": "one7",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_50_HTML/HTML/7.50.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_50_HTML/FinalBRDs/one6.brd",
+    "status": "PASS",
+    "steps": 8,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "7_50_HTML",
+    "problem_name": "one6",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -7410,20 +6613,6 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/HTML/7.51.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/FinalBRDs/two2.brd",
-    "status": "PASS",
-    "steps": 15,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "7_51_HTML",
-    "problem_name": "two2",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/HTML/7.51.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/FinalBRDs/two3.brd",
     "status": "PASS",
     "steps": 15,
@@ -7438,7 +6627,7 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/HTML/7.51.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/FinalBRDs/two4.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/FinalBRDs/two2.brd",
     "status": "PASS",
     "steps": 15,
     "error_class": null,
@@ -7446,7 +6635,7 @@
     "phase": "step",
     "strict_ok": true,
     "unit": "7_51_HTML",
-    "problem_name": "two4",
+    "problem_name": "two2",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -7466,7 +6655,7 @@
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/HTML/7.51.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/FinalBRDs/two6.brd",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/FinalBRDs/two4.brd",
     "status": "PASS",
     "steps": 15,
     "error_class": null,
@@ -7474,7 +6663,7 @@
     "phase": "step",
     "strict_ok": true,
     "unit": "7_51_HTML",
-    "problem_name": "two6",
+    "problem_name": "two4",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -7489,6 +6678,20 @@
     "strict_ok": true,
     "unit": "7_51_HTML",
     "problem_name": "two7",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/HTML/7.51.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/7_51_HTML/FinalBRDs/two6.brd",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "7_51_HTML",
+    "problem_name": "two6",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -8222,6 +7425,7 @@
       "stuck_in_group": true,
       "has_unordered_group": true,
       "stuck_matcher_types": [
+        "ExactMatcher",
         "ExpressionMatcher"
       ],
       "stuck_actors": [
@@ -8274,516 +7478,226 @@
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/HTML/8.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.3.brd",
-    "status": "STEP_FAIL",
-    "steps": 12,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(fifthright, expressionMatches(input,concat(\"4.75*\",\"(\",link25.input,\"-2\",\")\",\"+20\"))) on step 12",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "10",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_07_HTML",
     "problem_name": "8.7.3",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/HTML/8.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.4.brd",
-    "status": "STEP_FAIL",
-    "steps": 13,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(fifthright, expressionMatches(input,concat(\"4*\",\"(\",link25.input,\"-15\",\")\",\"+35\"))) on step 13",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_07_HTML",
     "problem_name": "8.7.4",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/HTML/8.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.5.brd",
-    "status": "STEP_FAIL",
-    "steps": 12,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(fifthright, expressionMatches(input,concat(link25.input,\"*7\",\"+30\"))) on step 12",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "10",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_07_HTML",
     "problem_name": "8.7.5",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/HTML/8.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.6.brd",
-    "status": "STEP_FAIL",
-    "steps": 12,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(fifthright, expressionMatches(input,concat(link25.input,\"/4\",\"+25000\"))) on step 12",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "10",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_07_HTML",
     "problem_name": "8.7.6",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/HTML/8.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.7.brd",
-    "status": "STEP_FAIL",
-    "steps": 12,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(fifthright, expressionMatches(input,concat(link25.input,\"*15\",\"+180\"))) on step 12",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "10",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_07_HTML",
     "problem_name": "8.7.7",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.2.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q7c1, -5/3) on step 0",
-    "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "25",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
-    "unit": "8_09_HTML",
-    "problem_name": "8.9.2",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/HTML/8.07.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_07_HTML/FinalBRDs/8.7.8.brd",
-    "status": "STEP_FAIL",
-    "steps": 13,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(fifthright, expressionMatches(input,concat(link25.input,\"*2\",\"+5\"))) on step 13",
+    "status": "PASS",
+    "steps": 15,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher polyTermsEqual RegexMatcher MassProduction template multi EdgeGroup",
-      "stuck_unique_id": "13",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher",
-        "RegexMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_07_HTML",
     "problem_name": "8.7.8",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.2.brd",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "8_09_HTML",
+    "problem_name": "8.9.2",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.3.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q5c1, 11/4) on step 0",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "17",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_09_HTML",
     "problem_name": "8.9.3",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.4.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q2c1, 7/5) on step 0",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "4",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_09_HTML",
     "problem_name": "8.9.4",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.1.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q6c3, 47/10) on step 0",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "1",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_09_HTML",
     "problem_name": "8.9.1",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.6.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q2c1, -3.25) on step 0",
-    "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "1",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
-    "unit": "8_09_HTML",
-    "problem_name": "8.9.6",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.5.brd",
-    "status": "STEP_FAIL",
-    "steps": 2,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q1c3, 1/2) on step 2",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "1",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_09_HTML",
     "problem_name": "8.9.5",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.6.brd",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "8_09_HTML",
+    "problem_name": "8.9.6",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.7.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q1c3, 2) on step 0",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "1",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_09_HTML",
     "problem_name": "8.9.7",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
-  },
-  {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.9.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q1c4, 0+-0.9) on step 0",
-    "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "1",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
-    "unit": "8_09_HTML",
-    "problem_name": "8.9.9",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.8.brd",
-    "status": "STEP_FAIL",
-    "steps": 2,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q5c1, -4.4) on step 2",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "1",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_09_HTML",
     "problem_name": "8.9.8",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.9.brd",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "8_09_HTML",
+    "problem_name": "8.9.9",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/HTML/8.09.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_09_HTML/FinalBRDs/8.9.10.brd",
-    "status": "STEP_FAIL",
-    "steps": 0,
-    "error_class": "DemoCheckRejected",
-    "error_msg": "tutor.check(demo) returned -1 for oracle demo UpdateTextField(q6c1, 1.6) on step 0",
+    "status": "PASS",
+    "steps": 28,
+    "error_class": null,
+    "error_msg": null,
     "phase": "step",
-    "diagnostic": {
-      "brd_features": "unordered_group ExpressionMatcher Buggy Action multi EdgeGroup",
-      "stuck_unique_id": "1",
-      "stuck_no_outgoing": false,
-      "stuck_only_optional": false,
-      "stuck_in_group": true,
-      "has_unordered_group": true,
-      "stuck_matcher_types": [
-        "ExpressionMatcher"
-      ],
-      "stuck_actors": [
-        "student"
-      ],
-      "stuck_action_types": [
-        "Correct Action"
-      ],
-      "stuck_has_template_input": false
-    },
-    "strict_ok": false,
+    "strict_ok": true,
     "unit": "8_09_HTML",
     "problem_name": "8.9.10",
-    "category": "brd_expression_matcher",
-    "category_desc": "BRD ExpressionMatcher on a needed edge \u2014 formula like expressionMatches(input,x+1), polyTermsEqual(...), eval()/ifThen/isVar. Wrapper has a TODO stub; the oracle can only take the edge when the target value happens to be literal."
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
   },
   {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_11_HTML/HTML/8.11.html",
@@ -9276,20 +8190,6 @@
     "category_desc": "Loaded and completed via oracle"
   },
   {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_12_HTML/HTML/8.12.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_12_HTML/FinalBRDs/cookies.brd",
-    "status": "PASS",
-    "steps": 25,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "8_12_HTML",
-    "problem_name": "cookies",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_14_HTML/HTML/8.14.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_14_HTML/FinalBRDs/01Bank.brd",
     "status": "PASS",
@@ -9300,6 +8200,20 @@
     "strict_ok": true,
     "unit": "8_14_HTML",
     "problem_name": "01 Bank",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_12_HTML/HTML/8.12.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_12_HTML/FinalBRDs/cookies.brd",
+    "status": "PASS",
+    "steps": 25,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "8_12_HTML",
+    "problem_name": "cookies",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
@@ -9598,20 +8512,6 @@
     "category_desc": "Loaded and completed via oracle"
   },
   {
-    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_19_HTML/HTML/8.19.html",
-    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_19_HTML/FinalBRDs/2 Problem 1.brd",
-    "status": "PASS",
-    "steps": 5,
-    "error_class": null,
-    "error_msg": null,
-    "phase": "step",
-    "strict_ok": true,
-    "unit": "8_19_HTML",
-    "problem_name": "2 Problem 1",
-    "category": "pass",
-    "category_desc": "Loaded and completed via oracle"
-  },
-  {
     "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_18_HTML/HTML/8.18.html",
     "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_18_HTML/FinalBRDs/07Stories.brd",
     "status": "PASS",
@@ -9622,6 +8522,20 @@
     "strict_ok": true,
     "unit": "8_18_HTML",
     "problem_name": "07Stories",
+    "category": "pass",
+    "category_desc": "Loaded and completed via oracle"
+  },
+  {
+    "html_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_19_HTML/HTML/8.19.html",
+    "model_path": "/Users/animesh/tutorgym/tutorgym/envs/CTAT/Mathtutor/8_19_HTML/FinalBRDs/2 Problem 1.brd",
+    "status": "PASS",
+    "steps": 5,
+    "error_class": null,
+    "error_msg": null,
+    "phase": "step",
+    "strict_ok": true,
+    "unit": "8_19_HTML",
+    "problem_name": "2 Problem 1",
     "category": "pass",
     "category_desc": "Loaded and completed via oracle"
   },
