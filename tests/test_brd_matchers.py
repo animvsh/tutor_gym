@@ -190,6 +190,26 @@ def test_expression_matcher_and_requires_all_branches():
     assert m.check({}, "4") is False
 
 
+def test_regex_match_in_expression_matcher():
+    # 7_15_HTML/1.brd fourthMid2: or(and(regExMatch(".*[+-*/].*",input),
+    #   expressionMatches(input,"1.25")), dollarEquals(input,"1.25"))
+    # The oracle used to type the raw regex pattern; now resolve_action
+    # prefers the BRD's recorded Input ("1.25"), which the matcher
+    # accepts via the dollarEquals branch.
+    f = 'or(and(regExMatch(".*[\\+\\-\\*\\/].*",input), expressionMatches(input,"1.25")), dollarEquals(input,"1.25"))'
+    m = ExpressionMatcher(f, "boolean")
+    assert m.check({}, "1.25") is True
+    assert m.check({}, "1.0+0.25") is True   # satisfies the regex+equals and-branch
+    assert m.check({}, "wrong") is False
+
+
+def test_dollar_equals_tolerates_prefix():
+    m = ExpressionMatcher('dollarEquals(input,"1.25")', "boolean")
+    assert m.check({}, "1.25") is True
+    assert m.check({}, "$1.25") is True
+    assert m.check({}, "1.26") is False
+
+
 def test_expression_matcher_and_tolerates_unsupported_branch():
     # 8_09_HTML/8.9.2.brd q7c1 edge: formula wraps equals(...) with an
     # or() of isSimplified/isSimplifiedMixed sanity predicates we don't

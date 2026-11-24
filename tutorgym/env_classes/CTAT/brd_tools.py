@@ -88,11 +88,31 @@ def extract_expression_target(expr):
                 return t
         return None
 
+    # regExMatch(pattern, input) — oracle demo needs a *sample* string
+    # the regex accepts, not the raw pattern (otherwise the demo types
+    # the regex literally and the matcher rejects it).
+    if name == 'regExMatch':
+        for a in args:
+            if _is_input_token(a):
+                continue
+            inner = _FUNC_RE.match(a)
+            if inner and _is_input_token(inner.group(2)):
+                continue
+            pattern = _strip_quotes(a)
+            if any(k in pattern for k in ('concat(', 'calc(', 'eval(')):
+                return None
+            try:
+                sample = norand_xeger(pattern)
+            except Exception:
+                sample = None
+            return sample if sample is not None else pattern
+        return None
+
     # expressionMatches(input, X) or expressionMatches(X, input):
     # pick the non-'input' side as the target.
     if name in ('expressionMatches', 'polyTermsEqual', 'algPartiallyEquivalent',
                 'patternMatches', 'fractionEquals', 'matchWithoutPrecision',
-                'equals', 'regExMatch', 'algEquiv'):
+                'equals', 'dollarEquals', 'algEquiv'):
         for a in args:
             if _is_input_token(a):
                 continue
@@ -134,9 +154,12 @@ _INPUT_WRAPPERS = {'calc', 'eval', 'rm1coeff', 'simplify', 'fmtDollar',
                    'fmtDecimal'}
 # Comparison predicates that reduce to "is one side equal to the other"
 # modulo symbolic simplification. We treat all of these the same way.
+# dollarEquals strips a leading $ from either side (CTAT uses it for
+# money-valued inputs where "$1.25" and "1.25" are both acceptable).
 _EQ_PREDICATES = {'expressionMatches', 'equals', 'polyTermsEqual',
                   'algPartiallyEquivalent', 'algEquiv', 'fractionEquals',
-                  'matchWithoutPrecision', 'patternMatches', 'regExMatch'}
+                  'matchWithoutPrecision', 'patternMatches',
+                  'dollarEquals'}
 
 
 def _resolve_operand(expr, state, inp):
@@ -190,9 +213,21 @@ class _Unsupported(Exception):
 
 def _value_equals(a, b):
     a, b = str(a).strip(), str(b).strip()
+    # dollarEquals semantics — tolerate a leading $ on either side.
+    if a.startswith('$'):
+        a = a[1:].strip()
+    if b.startswith('$'):
+        b = b[1:].strip()
     if a == b:
         return True
     return _sympy_equal(a, b)
+
+
+def _regex_full_match(pattern, text):
+    try:
+        return _re.fullmatch(pattern, str(text)) is not None
+    except _re.error:
+        return False
 
 
 def _resolve_target_for_state(formula, state):
@@ -281,6 +316,28 @@ def _eval_predicate(expr, state, inp):
             # checks like isSimplified/isVar/eval in an or()).
             raise _Unsupported(f"all branches unsupported in or({args!r})")
         return False
+    if name == 'regExMatch' and len(args) >= 2:
+        # regExMatch(pattern, input) in CTAT — actual regex match, not
+        # string equality. Resolve the non-'input' side as the pattern
+        # and run fullmatch against the resolved 'input' side.
+        pat_arg, inp_arg = None, None
+        for a in args[:2]:
+            if _is_input_token(a) or (
+                _FUNC_RE.match(a)
+                and _FUNC_RE.match(a).group(1) in _INPUT_WRAPPERS
+                and _is_input_token(_FUNC_RE.match(a).group(2))
+            ):
+                inp_arg = a
+            else:
+                pat_arg = a
+        if pat_arg is None or inp_arg is None:
+            # fall back to equality for malformed args
+            lhs = _resolve_operand(args[0], state, inp)
+            rhs = _resolve_operand(args[1], state, inp)
+            return _value_equals(lhs, rhs)
+        pattern = _resolve_operand(pat_arg, state, inp)
+        text = _resolve_operand(inp_arg, state, inp)
+        return _regex_full_match(pattern, text)
     if name in _EQ_PREDICATES and len(args) >= 2:
         lhs = _resolve_operand(args[0], state, inp)
         rhs = _resolve_operand(args[1], state, inp)
@@ -568,6 +625,19 @@ def resolve_action(message_action, matcher_action):
     matcher = checker.input_matcher
 
     if(isinstance(matcher, ExpressionMatcher)):
+        # Prefer the BRD's own recorded Input value when the matcher
+        # accepts it — the BRD author typed a known-good answer there
+        # (e.g. 7_15_HTML/1.brd fourthMid2=1.25, whose matcher wraps a
+        # regExMatch + dollarEquals OR). Only fall through to
+        # target/value when the recorded input is None/unusable.
+        msg_sel, msg_at, msg_inp = message_action.as_tuple()
+        if msg_inp not in (None, ""):
+            try:
+                if matcher.check({}, msg_inp):
+                    return Action((sel, at, msg_inp),
+                                  **matcher_action.annotations)
+            except Exception:
+                pass
         resolved = matcher.target if matcher.target is not None else matcher.value
         if(resolved is not None):
             return Action((sel, at, resolved), **matcher_action.annotations)
