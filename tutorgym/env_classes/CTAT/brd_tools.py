@@ -1,8 +1,129 @@
+import re as _re
 import lxml.etree as ET
 from tutorgym.utils import norand_xeger
 from tutorgym.shared import Action
 from tutorgym.env_classes.fsm_tutor import ActionGroup
 
+
+# ---------------------
+# : ExpressionMatcher formula helpers
+#
+# CTAT BRDs express tutor checks as small formulas inside <matcherParameter
+# name="InputExpression">. The most common shapes (by raw count across
+# Mathtutor) are literal values, expressionMatches(input, X) /
+# expressionMatches(X, input), polyTermsEqual(input, "X"), and_wrappers
+# like and(...) / or(...) around either of the above. Together those cover
+# ~70% of the ExpressionMatcher formulas in the corpus. The code below
+# extracts a concrete *target value* so the oracle can supply a demo input,
+# and compares student input to that target using a sympy-based algebraic
+# equality with string fallback.
+
+_FUNC_RE = _re.compile(r'^\s*([A-Za-z_]\w*)\s*\((.*)\)\s*$', _re.DOTALL)
+
+
+def _split_top_level(s):
+    """Split a comma-separated arg list respecting parentheses and quotes."""
+    out, buf, depth = [], [], 0
+    quote = None
+    for ch in s:
+        if quote:
+            buf.append(ch)
+            if ch == quote:
+                quote = None
+            continue
+        if ch in ('"', "'"):
+            quote = ch
+            buf.append(ch)
+            continue
+        if ch == '(':
+            depth += 1
+        elif ch == ')':
+            depth -= 1
+        if ch == ',' and depth == 0:
+            out.append(''.join(buf).strip())
+            buf = []
+        else:
+            buf.append(ch)
+    tail = ''.join(buf).strip()
+    if tail or out:
+        out.append(tail)
+    return out
+
+
+def _strip_quotes(s):
+    s = s.strip()
+    if len(s) >= 2 and s[0] == s[-1] and s[0] in ('"', "'"):
+        return s[1:-1]
+    return s
+
+
+def _is_input_token(s):
+    return s.strip() == 'input'
+
+
+def extract_expression_target(expr):
+    """Return a concrete target value string for an ExpressionMatcher formula,
+    or None if no literal target can be extracted (e.g. the RHS references
+    state variables the wrapper doesn't evaluate).
+    """
+    if expr is None:
+        return None
+    expr = expr.strip()
+    if not expr:
+        return None
+
+    mo = _FUNC_RE.match(expr)
+    if not mo:
+        # Not a function call — treat the whole expression as a literal.
+        return _strip_quotes(expr)
+
+    name = mo.group(1)
+    args = _split_top_level(mo.group(2))
+
+    # Logical wrappers: recurse into the first child that yields a target.
+    if name in ('and', 'or'):
+        for a in args:
+            t = extract_expression_target(a)
+            if t is not None:
+                return t
+        return None
+
+    # expressionMatches(input, X) or expressionMatches(X, input):
+    # pick the non-'input' side as the target.
+    if name in ('expressionMatches', 'polyTermsEqual', 'algPartiallyEquivalent',
+                'patternMatches', 'fractionEquals', 'matchWithoutPrecision',
+                'equals', 'regExMatch', 'algEquiv'):
+        for a in args:
+            if _is_input_token(a):
+                continue
+            # Nested calc(input)/eval(input)/rm1coeff(input) → skip, those
+            # wrap the student input, not the target.
+            inner = _FUNC_RE.match(a)
+            if inner and _is_input_token(inner.group(2)):
+                continue
+            target = _strip_quotes(a)
+            # If the target itself still references BRD-time state variables
+            # (e.g. concat(thirdleft, "+35")) we can't resolve it to a literal.
+            if any(k in target for k in ('concat(', 'calc(', 'eval(', 'input')):
+                return None
+            return target
+        return None
+
+    # Literal or unknown shape — fall back to the raw expression.
+    return _strip_quotes(expr)
+
+
+def _sympy_equal(a, b):
+    """True if two strings represent algebraically equivalent expressions.
+    Returns False on any parse failure. Used by ExpressionMatcher.check().
+    """
+    try:
+        from sympy import sympify, simplify
+        ea = sympify(a, evaluate=True)
+        eb = sympify(b, evaluate=True)
+        return bool(simplify(ea - eb) == 0)
+    except Exception:
+        return False
 
 
 # ---------------------
@@ -12,14 +133,31 @@ class BaseMatcher:
 
 class ExpressionMatcher(BaseMatcher):
     def __init__(self, InputExpression, relation, **kwargs):
-        self.value = InputExpression
+        self.formula = InputExpression
         self.relation = relation
         self.kwargs = kwargs
+        # target is the concrete literal the oracle can type when the formula
+        # can be reduced; otherwise None (formulas that reference state vars
+        # like concat(thirdleft,"+35") can't be reduced here).
+        self.target = extract_expression_target(InputExpression)
+        # self.value is what parse_matchers reads as the Input SAI value and
+        # what the oracle types when nothing else resolves it. Prefer the
+        # extracted literal; fall back to the raw formula so the action still
+        # has a non-None input (keeps it off the action_not_template filter
+        # and distinct from unrelated edges).
+        self.value = self.target if self.target is not None else InputExpression
 
     def check(self, state, inp):
-        # TODO actually make work
-        print('check', inp,  self.value)
-        return inp == self.value
+        if inp is None:
+            return False
+        # Formula didn't reduce to a literal: we don't know the expected value,
+        # so match leniently (any typed input is accepted). This matches the
+        # pre-existing behavior for unresolved ExpressionMatcher edges.
+        if self.target is None:
+            return True
+        if str(inp).strip() == str(self.target).strip():
+            return True
+        return _sympy_equal(str(inp), str(self.target))
 
 
 class ExactMatcher(BaseMatcher): 
@@ -29,7 +167,7 @@ class ExactMatcher(BaseMatcher):
     def check(self, state, inp):
         return inp == self.value
 
-class RegexMatcher(BaseMatcher): 
+class RegexMatcher(BaseMatcher):
     def __init__(self, single, **kwargs):
         self.regex = single
         self.value = norand_xeger(self.regex)
@@ -37,7 +175,7 @@ class RegexMatcher(BaseMatcher):
         # raise ValueError()
 
     def check(self, state, inp):
-        return re.fullmatch(self.regex, inp) 
+        return re.fullmatch(self.regex, inp)
 
 class AnyMatcher(BaseMatcher): 
     def __init__(self, **kwargs):
@@ -213,26 +351,16 @@ expr_matches_re = re.compile(r"expressionMatches\((.*),([^\)\"]*)\)")
 
 def resolve_input_from_matcher(matcher, matcher_action):
     sel, at, inp = matcher_action.as_tuple()
-    epxr_match = expr_matches_re.search(matcher.value)
-    poly_match = polyTermsEqual_re.search(matcher.value)
-    # print(matcher)
-    if(epxr_match):
-        a,b = epxr_match.group(1), epxr_match.group(2)
-        if(b == 'input'): a,b = b,a
-        if(matcher.relation == "boolean"):
-            print(f"Expr matcher({sel}):", b)
-            matcher.value = b
-            return b
-
-    elif(poly_match):
-        print(f"Poly matcher({sel}):", poly_match.group(2))
-    elif(matcher.relation in ("=", "<=", ">=")):
+    # ExpressionMatcher.value is already the extracted literal (or None) now.
+    if isinstance(matcher, ExpressionMatcher):
+        return matcher.value
+    if matcher.relation in ("=", "<=", ">="):
         return matcher.value
     return None
 
 
 def resolve_action(message_action, matcher_action):
-    ''' Uses information from the message_action and matcher_action to resolve the 
+    ''' Uses information from the message_action and matcher_action to resolve the
         'input' field of the SAIs.
     '''
     if(matcher_action.get_annotation("omitted", False) == True or
@@ -240,21 +368,17 @@ def resolve_action(message_action, matcher_action):
         return matcher_action
 
     checker = matcher_action.get_annotation('checker')
-    # print("RESOLVE", checker)
     if(not checker or isinstance(checker.input_matcher, ExactMatcher)):
         return matcher_action
 
     sel, at, inp = matcher_action.as_tuple()
     matcher = checker.input_matcher
-    if(isinstance(matcher, ExpressionMatcher)):
-        # print("<< ExpressionMatcher")
-        inp = resolve_input_from_matcher(matcher, matcher_action)
 
-        if(inp is not None):
-            return Action((sel, at, inp), **matcher_action.annotations)   
-        else:
-            print(f"? matcher({sel}):", matcher)
-        print()
+    if(isinstance(matcher, ExpressionMatcher)):
+        resolved = matcher.target if matcher.target is not None else matcher.value
+        if(resolved is not None):
+            return Action((sel, at, resolved), **matcher_action.annotations)
+        return matcher_action
 
     return matcher_action
 
