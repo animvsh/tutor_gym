@@ -47,10 +47,14 @@ EVAL_WORKING_PROBLEMS = 0
 EVAL_WORKING_UNITS = 0
 EVAL_WORKING_UNITS_LIST: list = []
 
-# Baseline (pre-fix) coverage numbers recorded from commit 7b20b8fd (see git
-# log). Used by the "Baseline vs now" section of the markdown report.
-BASELINE = {
-    "total": 691, "pass": 618, "load_fail": 12, "step_fail": 8, "incomplete": 53,
+# Baseline (pre-fix) coverage numbers measured with the SAME script (including
+# PASS_STRICT) against commit 7b20b8fd in a separate git worktree. See
+# `docs/ctat_coverage.md` ("Baseline vs now") for methodology. If this file is
+# regenerated without running baseline.json, we fall back to the pre-strict
+# numbers (which reported PASS only; PASS_STRICT=None).
+BASELINE_FALLBACK = {
+    "total": 691, "pass": 618, "pass_strict": None,
+    "load_fail": 12, "step_fail": 8, "incomplete": 53,
     "by_category": {
         "brd_expression_matcher": 52,
         "brd_old_matcher_null_input": 12,
@@ -59,6 +63,23 @@ BASELINE = {
         "brd_unordered_group": 1,
     },
 }
+
+
+def _load_baseline():
+    """Prefer docs/ctat_coverage_baseline.json produced by a fair fresh run of
+    this script against the pre-fix code; fall back to the hard-coded numbers
+    recorded in BASELINE_FALLBACK (same-methodology PASS_STRICT may be None).
+    """
+    p = DOCS_DIR / "ctat_coverage_baseline.json"
+    if p.exists():
+        try:
+            return json.loads(p.read_text())
+        except Exception:
+            pass
+    return BASELINE_FALLBACK
+
+
+BASELINE = BASELINE_FALLBACK  # replaced in write_outputs()
 
 
 # ---------------------------------------------------------------------------
@@ -360,6 +381,10 @@ def _run_one_problem(html_path: str, model_path: str) -> dict:
         "phase": None,
     }
 
+    # Strict-grading bookkeeping.
+    strict_ok = True
+    strict_failure: dict | None = None
+
     buf = io.StringIO()
     tutor = None
     state = None
@@ -369,6 +394,8 @@ def _run_one_problem(html_path: str, model_path: str) -> dict:
             prerender_html_to_json(Path(html_path))
 
             from tutorgym.env_classes.CTAT.CTAT_tutor import CTAT_Tutor
+            from tutorgym.env_classes.CTAT.brd_tools import AnyMatcher
+            from tutorgym.shared import Action
 
             result["phase"] = "load"
             tutor = CTAT_Tutor()
@@ -380,6 +407,9 @@ def _run_one_problem(html_path: str, model_path: str) -> dict:
                 if state.get_annotation("is_done", False):
                     result["status"] = "PASS"
                     result["steps"] = i
+                    result["strict_ok"] = strict_ok
+                    if strict_failure is not None:
+                        result["strict_failure"] = strict_failure
                     return result
                 demos = tutor.get_all_demos()
                 if not demos:
@@ -387,6 +417,7 @@ def _run_one_problem(html_path: str, model_path: str) -> dict:
                     result["error_msg"] = "__INCOMPLETE__ no demos available"
                     result["steps"] = i
                     result["diagnostic"] = _stuck_diagnostic(tutor, state, model_path)
+                    result["strict_ok"] = False
                     return result
                 demo = demos[0]
                 # PASS requires that the tutor also grades the demo CORRECT via its
@@ -401,18 +432,63 @@ def _run_one_problem(html_path: str, model_path: str) -> dict:
                     )
                     result["steps"] = i
                     result["diagnostic"] = _stuck_diagnostic(tutor, state, model_path)
+                    result["strict_ok"] = False
                     return result
+
+                # Strict check: an obviously wrong input for the same
+                # (selection, action_type) must NOT be graded correct, unless
+                # the BRD edge really is AnyMatcher (author-authored
+                # "accept any value" — cf. parse_matcher/parse_old_matcher).
+                if strict_ok:
+                    sel, at, _ = demo.as_tuple()
+                    wrong_inp = f"tgym_wrong_{i}_9137"
+                    wrong_demo = Action((sel, at, wrong_inp))
+                    try:
+                        wrong_grade = tutor.check(wrong_demo)
+                    except Exception:
+                        wrong_grade = -1
+                    if wrong_grade == 1:
+                        # Who matched? If it's a genuine AnyMatcher edge, that
+                        # is the BRD author's choice and PASS_STRICT still holds.
+                        matched = None
+                        try:
+                            matched = tutor._check_w_next(wrong_demo)
+                        except Exception:
+                            pass
+                        is_any_matcher = False
+                        if matched is not None:
+                            checker = matched.get_annotation("checker", None)
+                            if checker is not None and isinstance(
+                                getattr(checker, "input_matcher", None), AnyMatcher
+                            ):
+                                is_any_matcher = True
+                        if not is_any_matcher:
+                            strict_ok = False
+                            strict_failure = {
+                                "step": i,
+                                "selection": sel,
+                                "action_type": at,
+                                "wrong_input": wrong_inp,
+                                "matched_matcher": (
+                                    type(matched.get_annotation("checker").input_matcher).__name__
+                                    if matched is not None
+                                    and matched.get_annotation("checker") is not None
+                                    else None
+                                ),
+                            }
                 state = tutor.apply(demo)
             result["status"] = "INCOMPLETE"
             result["error_msg"] = f"__INCOMPLETE__ exceeded MAX_STEPS ({MAX_STEPS})"
             result["steps"] = MAX_STEPS
             result["diagnostic"] = _stuck_diagnostic(tutor, state, model_path)
+            result["strict_ok"] = False
             return result
     except Exception as exc:
         result["status"] = "LOAD_FAIL" if result["phase"] == "load" else "STEP_FAIL"
         result["error_class"] = type(exc).__name__
         tb = traceback.format_exc(limit=5)
         result["error_msg"] = f"{type(exc).__name__}: {exc}\n{tb}"
+        result["strict_ok"] = False
         try:
             result["diagnostic"] = _stuck_diagnostic(tutor, state, model_path)
         except Exception:  # noqa: BLE001
@@ -639,6 +715,9 @@ def write_outputs(results: list[dict]) -> None:
     with open(out_json, "w") as fh:
         json.dump(results, fh, indent=2, default=str)
 
+    global BASELINE
+    BASELINE = _load_baseline()
+
     global EVAL_WORKING_PROBLEMS, EVAL_WORKING_UNITS, EVAL_WORKING_UNITS_LIST
     EVAL_WORKING_PROBLEMS, EVAL_WORKING_UNITS, EVAL_WORKING_UNITS_LIST = \
         _eval_working_counts(results)
@@ -646,6 +725,9 @@ def write_outputs(results: list[dict]) -> None:
     # Markdown report
     total = len(results)
     passed = sum(1 for r in results if r["status"] == "PASS")
+    passed_strict = sum(
+        1 for r in results if r["status"] == "PASS" and r.get("strict_ok", False)
+    )
     load_fail = sum(1 for r in results if r["status"] == "LOAD_FAIL")
     step_fail = sum(1 for r in results if r["status"] == "STEP_FAIL")
     incomplete = sum(1 for r in results if r["status"] == "INCOMPLETE")
@@ -663,6 +745,8 @@ def write_outputs(results: list[dict]) -> None:
     for r in results:
         unit_stats[r["unit"]][r["status"]] += 1
         unit_stats[r["unit"]]["total"] += 1
+        if r["status"] == "PASS" and r.get("strict_ok", False):
+            unit_stats[r["unit"]]["PASS_STRICT"] += 1
 
     lines: list[str] = []
     lines.append("# CTAT Coverage Report\n")
@@ -673,34 +757,48 @@ def write_outputs(results: list[dict]) -> None:
     lines.append("## Summary\n")
     lines.append(f"- Total problems: **{total}**")
     lines.append(f"- PASS (load + complete): **{passed}** ({pct(passed, total)})")
+    lines.append(
+        f"- PASS_STRICT (PASS AND wrong inputs rejected at every step): "
+        f"**{passed_strict}** ({pct(passed_strict, total)})"
+    )
     lines.append(f"- LOAD_FAIL: **{load_fail}** ({pct(load_fail, total)})")
     lines.append(f"- STEP_FAIL: **{step_fail}** ({pct(step_fail, total)})")
     lines.append(f"- INCOMPLETE: **{incomplete}** ({pct(incomplete, total)})\n")
 
     lines.append("## Baseline vs now\n")
+    baseline_source = (
+        "measured with this same script (including PASS_STRICT) against commit "
+        "`7b20b8fd` in a sibling git worktree"
+        if (DOCS_DIR / "ctat_coverage_baseline.json").exists()
+        else "recorded from the original 7b20b8fd report (PASS_STRICT unavailable)"
+    )
     lines.append(
-        f"The baseline was recorded at commit `7b20b8fd` on the same corpus "
-        f"({BASELINE['total']} problems) with a 30s timeout. This run includes "
-        "the null-matcher, ExpressionMatcher, and RegexMatcher fixes and uses "
-        f"a {PER_PROBLEM_TIMEOUT:g}s timeout.\n"
+        f"Baseline numbers are {baseline_source}. Both columns use the same "
+        f"methodology, timeout ({PER_PROBLEM_TIMEOUT:g}s per problem), and "
+        "pre-render/strict-grading logic.\n"
     )
     lines.append("| Metric | Baseline | Now | Delta |")
     lines.append("|---|---:|---:|---:|")
-    for label, bkey, now in [
+    rows = [
         ("PASS", "pass", passed),
+        ("PASS_STRICT", "pass_strict", passed_strict),
         ("LOAD_FAIL", "load_fail", load_fail),
         ("STEP_FAIL", "step_fail", step_fail),
         ("INCOMPLETE", "incomplete", incomplete),
-    ]:
-        b = BASELINE[bkey]
-        lines.append(f"| {label} | {b} | {now} | {now - b:+d} |")
+    ]
+    for label, bkey, now in rows:
+        b = BASELINE.get(bkey)
+        if b is None:
+            lines.append(f"| {label} | _n/a_ | {now} | _n/a_ |")
+        else:
+            lines.append(f"| {label} | {b} | {now} | {now - b:+d} |")
     lines.append("")
     lines.append("Per-category (non-PASS):\n")
     lines.append("| Category | Baseline | Now | Delta |")
     lines.append("|---|---:|---:|---:|")
-    cats_all = set(BASELINE["by_category"]) | {k for k in cat_counter}
+    cats_all = set(BASELINE.get("by_category", {})) | {k for k in cat_counter}
     for cat in sorted(cats_all):
-        b = BASELINE["by_category"].get(cat, 0)
+        b = BASELINE.get("by_category", {}).get(cat, 0)
         n = cat_counter.get(cat, 0)
         lines.append(f"| `{cat}` | {b} | {n} | {n - b:+d} |")
     lines.append("")
@@ -851,12 +949,18 @@ def write_outputs(results: list[dict]) -> None:
     )
 
     lines.append("## Per-unit table\n")
-    lines.append("| Unit | Total | PASS | LOAD_FAIL | STEP_FAIL | INCOMPLETE |")
-    lines.append("|------|------:|-----:|----------:|----------:|-----------:|")
+    lines.append(
+        "| Unit | Total | PASS | PASS_STRICT | LOAD_FAIL | STEP_FAIL | INCOMPLETE |"
+    )
+    lines.append(
+        "|------|------:|-----:|------------:|----------:|----------:|-----------:|"
+    )
     for unit in sorted(unit_stats):
         s = unit_stats[unit]
-        lines.append(f"| {unit} | {s['total']} | {s['PASS']} | {s['LOAD_FAIL']} | "
-                     f"{s['STEP_FAIL']} | {s['INCOMPLETE']} |")
+        lines.append(
+            f"| {unit} | {s['total']} | {s['PASS']} | {s['PASS_STRICT']} | "
+            f"{s['LOAD_FAIL']} | {s['STEP_FAIL']} | {s['INCOMPLETE']} |"
+        )
     lines.append("")
 
     (DOCS_DIR / "ctat_coverage.md").write_text("\n".join(lines))
@@ -877,13 +981,16 @@ def short_path(p: str) -> str:
 def print_summary(results: list[dict]) -> None:
     total = len(results)
     passed = sum(1 for r in results if r["status"] == "PASS")
+    passed_strict = sum(
+        1 for r in results if r["status"] == "PASS" and r.get("strict_ok", False)
+    )
     load_fail = sum(1 for r in results if r["status"] == "LOAD_FAIL")
     step_fail = sum(1 for r in results if r["status"] == "STEP_FAIL")
     incomplete = sum(1 for r in results if r["status"] == "INCOMPLETE")
     print()
     print("=" * 70)
-    print(f"TOTAL: {total}  PASS: {passed}  LOAD_FAIL: {load_fail}  "
-          f"STEP_FAIL: {step_fail}  INCOMPLETE: {incomplete}")
+    print(f"TOTAL: {total}  PASS: {passed}  PASS_STRICT: {passed_strict}  "
+          f"LOAD_FAIL: {load_fail}  STEP_FAIL: {step_fail}  INCOMPLETE: {incomplete}")
     cat_counter: Counter[str] = Counter(r["category"] for r in results if r["status"] != "PASS")
     for cat, cnt in cat_counter.most_common(10):
         print(f"  {cnt:4d}  {cat}")

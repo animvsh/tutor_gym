@@ -195,6 +195,42 @@ def _value_equals(a, b):
     return _sympy_equal(a, b)
 
 
+def _resolve_target_for_state(formula, state):
+    """Extract a concrete demo input for a formula against a specific state.
+
+    Walks the same predicate shapes as ``_eval_predicate`` but, instead of
+    checking equality, returns the resolved non-'input' side as a string.
+    Returns None when nothing can be resolved.
+    """
+    if not formula:
+        return None
+    expr = formula.strip()
+    mo = _FUNC_RE.match(expr)
+    if not mo:
+        return _strip_quotes(expr)
+    name = mo.group(1)
+    args = _split_top_level(mo.group(2))
+    if name in ('and', 'or'):
+        for a in args:
+            t = _resolve_target_for_state(a, state)
+            if t is not None:
+                return t
+        return None
+    if name in _EQ_PREDICATES:
+        for a in args:
+            if _is_input_token(a):
+                continue
+            inner = _FUNC_RE.match(a)
+            if inner and inner.group(1) in _INPUT_WRAPPERS and _is_input_token(inner.group(2)):
+                continue
+            try:
+                return _resolve_operand(a, state, inp=None)
+            except _Unsupported:
+                continue
+        return None
+    return None
+
+
 def _eval_predicate(expr, state, inp):
     """Evaluate a CTAT ExpressionMatcher formula against (state, inp).
 
@@ -270,6 +306,16 @@ class ExpressionMatcher(BaseMatcher):
         if self.target is not None:
             return _value_equals(str(inp), str(self.target))
         return False
+
+    def resolve_target_against_state(self, state):
+        """Return a concrete expected input value resolved against ``state``,
+        or None if the formula still references unknown variables.
+
+        Used by the tutor at demo time to produce a typeable value for
+        formulas like ``expressionMatches(concat(thirdleft, "+35"), input)``,
+        whose target cannot be derived statically from the BRD alone.
+        """
+        return _resolve_target_for_state(self.formula, state)
 
 
 class ExactMatcher(BaseMatcher): 

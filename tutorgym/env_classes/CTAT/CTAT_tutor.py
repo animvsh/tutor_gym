@@ -79,6 +79,31 @@ class CTAT_Tutor(StateMachineTutor):
                 return False
         return True
 
+    def _process_demo(self, action, **kwargs):
+        """Re-resolve ExpressionMatcher demo inputs against the current state.
+
+        Formulas like ``expressionMatches(concat(thirdleft, "+35"), input)``
+        can't be reduced to a literal at BRD parse time — the oracle would
+        otherwise hand back the raw formula string. Ask the original edge's
+        checker (available on ``action`` before ``super()._process_demo``
+        strips annotations) to resolve its formula against the live state.
+        """
+        from tutorgym.env_classes.CTAT.brd_tools import ExpressionMatcher
+        resolved = None
+        checker = action.get_annotation("checker", None)
+        if checker is not None:
+            m = getattr(checker, "input_matcher", None)
+            if isinstance(m, ExpressionMatcher):
+                try:
+                    resolved = m.resolve_target_against_state(self.state)
+                except Exception:
+                    resolved = None
+        demo = super()._process_demo(action, **kwargs)
+        if resolved is None:
+            return demo
+        sel, at, _ = demo.as_tuple()
+        return Action((sel, at, str(resolved)), **demo.annotations)
+
     def _filter_state(self, state):
 
         f_state = {}
