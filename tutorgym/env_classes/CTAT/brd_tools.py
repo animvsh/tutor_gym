@@ -247,14 +247,39 @@ def _eval_predicate(expr, state, inp):
     name = mo.group(1)
     args = _split_top_level(mo.group(2))
     if name == 'and':
-        return all(_eval_predicate(a, state, inp) for a in args)
+        # Treat unsupported branches as implicit True so predicates like
+        # isSimplified(input), isVar(input), or other CTAT sanity checks
+        # we don't model don't force the whole and() to False when the
+        # sibling equals/polyTermsEqual branch already answered YES.
+        # If every branch is unsupported we still raise _Unsupported so
+        # the caller can decide (ExpressionMatcher.check falls back to
+        # a literal target comparison).
+        any_evaluated = False
+        for a in args:
+            try:
+                res = _eval_predicate(a, state, inp)
+            except _Unsupported:
+                continue
+            any_evaluated = True
+            if not res:
+                return False
+        if not any_evaluated:
+            raise _Unsupported(f"all branches unsupported in and({args!r})")
+        return True
     if name == 'or':
+        any_evaluated = False
         for a in args:
             try:
                 if _eval_predicate(a, state, inp):
                     return True
             except _Unsupported:
                 continue
+            any_evaluated = True
+        if not any_evaluated:
+            # All branches were unsupported — propagate so an enclosing
+            # and() can skip this whole branch (CTAT often wraps sanity
+            # checks like isSimplified/isVar/eval in an or()).
+            raise _Unsupported(f"all branches unsupported in or({args!r})")
         return False
     if name in _EQ_PREDICATES and len(args) >= 2:
         lhs = _resolve_operand(args[0], state, inp)

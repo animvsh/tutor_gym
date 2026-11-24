@@ -190,6 +190,19 @@ def test_expression_matcher_and_requires_all_branches():
     assert m.check({}, "4") is False
 
 
+def test_expression_matcher_and_tolerates_unsupported_branch():
+    # 8_09_HTML/8.9.2.brd q7c1 edge: formula wraps equals(...) with an
+    # or() of isSimplified/isSimplifiedMixed sanity predicates we don't
+    # model. The equals branch already answered YES — don't let the
+    # unsupported sibling branch drag the whole and() to False.
+    f = 'and(equals("-5/3",input),or(isSimplifiedMixed(input),isSimplified(input)))'
+    m = ExpressionMatcher(f, "boolean")
+    assert m.check({}, "-5/3") is True
+    # Wrong fraction must still be rejected.
+    assert m.check({}, "5/3") is False
+    assert m.check({}, "tgym_wrong") is False
+
+
 def test_expression_matcher_calc_input_wrapper():
     # matchWithoutPrecision(calc(input), "1") - calc(input) treated as input.
     m = ExpressionMatcher('matchWithoutPrecision(calc(input),"1")', "boolean")
