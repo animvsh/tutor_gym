@@ -400,12 +400,15 @@ class FiniteStateMachine:
             exit_actions += list(out_edges.keys())
 
         # print("n_exit_actions", len(exit_actions))
+        # Direct FSM out-edges represent state transitions, not group members;
+        # don't skip an edge just because its SAI happens to repeat one already
+        # in history (e.g. 8_17_HTML chains two UpdateTextField(Ans6, 120)
+        # edges across consecutive nodes). Deduplicate against group members
+        # — those are the ones _group_satisfied is responsible for — via the
+        # unfinished_actions path above; exit edges stay.
         for exit_action in exit_actions:
-            satisfied = self._action_satisfied(state, exit_action)
-            # print("exit_action", exit_action, f"id={exit_action.get_annotation('unique_id')} ({exit_action.get_annotation('src_id')}, {exit_action.get_annotation('dest_id')})", satisfied)
-            if(not satisfied):
-                next_actions.append(exit_action)  
-        # print("n_actions", len(next_actions))  
+            next_actions.append(exit_action)
+        # print("n_actions", len(next_actions))
 
         
             # for na in next_actions:

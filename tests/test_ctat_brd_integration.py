@@ -90,6 +90,19 @@ def test_brd_start_state_falls_back_to_one_when_missing(tmp_path):
     assert start_id == "1"
 
 
+def test_repeated_sai_chain_completes():
+    # 8_17_HTML/01Automobile.brd has two consecutive edges with the same SAI
+    # (UpdateTextField(Ans6, 120)) across sequential nodes. The _action_satisfied
+    # filter used to drop the second edge because its SAI was already in
+    # history, stranding the oracle. Direct out-edges should always be
+    # emitted; only group members are deduped by history.
+    steps = _run_oracle(
+        MATHTUTOR / "8_17_HTML/HTML/8.17.html",
+        MATHTUTOR / "8_17_HTML/FinalBRDs/01Automobile.brd",
+    )
+    assert steps > 0
+
+
 def test_brd_start_state_resolves_named_node():
     from tutorgym.env_classes.CTAT.brd_tools import parse_brd
     _, _, _, start_id = parse_brd(
