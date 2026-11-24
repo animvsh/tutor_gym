@@ -332,6 +332,17 @@ def classify_result(result: dict) -> str:
     if "KeyError" in err and "ProblemState" in err:
         return "html_missing_selection"
 
+    # --- 4) DemoCheckRejected STEP_FAIL after strict ExpressionMatcher ---
+    # When the oracle hands back the raw formula string because the formula
+    # couldn't be reduced, strict check now returns False. Classify under
+    # ExpressionMatcher so these feature-gap problems land in the right bucket.
+    if "DemoCheckRejected" in err or "returned -1 for oracle demo" in err:
+        brd = (diag.get("brd_features") or "")
+        if "ExpressionMatcher" in brd:
+            return "brd_expression_matcher"
+        if "polyTermsEqual" in brd:
+            return "brd_poly_matcher"
+
     return "other"
 
 
@@ -945,8 +956,49 @@ def write_outputs(results: list[dict]) -> None:
         "`INCOMPLETE` runs are then classified from a structured diagnostic "
         "that records the stuck node id, whether it's in an edge group, the "
         "matcher classes on its outgoing edges, actor, and whether any "
-        "candidate input still contains a `%(...)%` MassProduction template.\n"
+        "candidate input still contains a `%(...)%` MassProduction template.\n\n"
+        "**Why PASS_STRICT can decrease vs. baseline.** The baseline's "
+        "`ExpressionMatcher.check()` was the literal `inp == self.value` "
+        "with `self.value` kept as the raw formula string (e.g. "
+        "`and(polyTermsEqual(input, concat(link.input, \"*6\")))`). The "
+        "oracle typed that same raw string as its demo, and check happened "
+        "to accept it — a PASS in name only. The wrong-input probe "
+        "`tgym_wrong_...` didn't match the raw formula string either, so "
+        "PASS_STRICT was True. Those pseudo-passes now fail honestly: the "
+        "oracle extracts a real literal when possible and otherwise lets the "
+        "step fail, so no synthetic demos sneak through as correct.\n"
     )
+
+    # Units that pass 100% strictly but are not in env_registry
+    # WORKING_DOMAINS — candidates to add after review.
+    try:
+        from tutorgym.envs.CTAT.Mathtutor.env_registry import WORKING_DOMAINS
+        wd = set(WORKING_DOMAINS)
+    except Exception:
+        wd = set()
+    strict_candidates: list[tuple[str, int]] = []
+    for unit, s in sorted(unit_stats.items()):
+        total_u = s["total"]
+        strict_u = s["PASS_STRICT"]
+        if unit not in wd and total_u > 0 and strict_u == total_u:
+            strict_candidates.append((unit, total_u))
+
+    lines.append("## Candidate units for WORKING_DOMAINS\n")
+    lines.append(
+        "Units where **every** problem currently passes strictly "
+        "(PASS_STRICT == total) but that are NOT present in "
+        "`tutorgym.envs.CTAT.Mathtutor.env_registry.WORKING_DOMAINS`. These "
+        "are candidates for Danny to review; this script does not edit "
+        "`WORKING_DOMAINS`.\n"
+    )
+    if strict_candidates:
+        lines.append("| Unit | Problems |")
+        lines.append("|------|---------:|")
+        for u, n in strict_candidates:
+            lines.append(f"| `{u}` | {n} |")
+    else:
+        lines.append("_(none — no fully-strict units outside WORKING_DOMAINS)_")
+    lines.append("")
 
     lines.append("## Per-unit table\n")
     lines.append(
