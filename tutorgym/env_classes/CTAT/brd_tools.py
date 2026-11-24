@@ -126,6 +126,107 @@ def _sympy_equal(a, b):
         return False
 
 
+_IDENT_RE = _re.compile(r'^[A-Za-z_][A-Za-z0-9_]*$')
+# Function wrappers whose single argument should be treated as the student
+# input itself (CTAT applies them before the equality check; TutorGym grades
+# against the raw typed text).
+_INPUT_WRAPPERS = {'calc', 'eval', 'rm1coeff', 'simplify', 'fmtDollar',
+                   'fmtDecimal'}
+# Comparison predicates that reduce to "is one side equal to the other"
+# modulo symbolic simplification. We treat all of these the same way.
+_EQ_PREDICATES = {'expressionMatches', 'equals', 'polyTermsEqual',
+                  'algPartiallyEquivalent', 'algEquiv', 'fractionEquals',
+                  'matchWithoutPrecision', 'patternMatches', 'regExMatch'}
+
+
+def _resolve_operand(expr, state, inp):
+    """Resolve a formula operand to a concrete string value.
+
+    - ``'input'`` -> the student's typed input.
+    - Quoted literal -> literal content.
+    - Bare identifier -> ``state[ident]['value']`` or ``['input']``.
+    - ``concat(a, b, ...)`` -> concatenation of resolved args.
+    - ``calc(input)`` / ``eval(input)`` / ``rm1coeff(input)`` etc. -> input.
+    - Raises ``_Unsupported`` if the operand cannot be resolved.
+    """
+    expr = expr.strip()
+    if _is_input_token(expr):
+        return str(inp)
+    # Quoted literal.
+    if len(expr) >= 2 and expr[0] == expr[-1] and expr[0] in ('"', "'"):
+        return expr[1:-1]
+    # Function wrapper.
+    mo = _FUNC_RE.match(expr)
+    if mo:
+        name = mo.group(1)
+        args = _split_top_level(mo.group(2))
+        if name == 'concat':
+            return ''.join(_resolve_operand(a, state, inp) for a in args)
+        if name in _INPUT_WRAPPERS and len(args) == 1:
+            return _resolve_operand(args[0], state, inp)
+        raise _Unsupported(f"cannot resolve operand {expr!r}")
+    # Bare identifier referencing a state selection id.
+    if _IDENT_RE.match(expr):
+        try:
+            obj = state[expr] if hasattr(state, '__getitem__') else None
+        except Exception:
+            obj = None
+        if isinstance(obj, dict):
+            for k in ('value', 'input'):
+                v = obj.get(k)
+                if v is not None:
+                    return str(v)
+        raise _Unsupported(f"unresolved identifier {expr!r}")
+    # Dotted ref (e.g. link25.input) — not supported.
+    if '.' in expr:
+        raise _Unsupported(f"dotted ref {expr!r}")
+    # Numeric literal / simple expression — hand back as-is for sympy.
+    return expr
+
+
+class _Unsupported(Exception):
+    pass
+
+
+def _value_equals(a, b):
+    a, b = str(a).strip(), str(b).strip()
+    if a == b:
+        return True
+    return _sympy_equal(a, b)
+
+
+def _eval_predicate(expr, state, inp):
+    """Evaluate a CTAT ExpressionMatcher formula against (state, inp).
+
+    Returns True/False for supported shapes; raises ``_Unsupported`` for
+    formulas we don't model (strict behaviour — caller returns False).
+    """
+    expr = (expr or '').strip()
+    if not expr:
+        raise _Unsupported("empty formula")
+    mo = _FUNC_RE.match(expr)
+    if not mo:
+        # Treat the whole expression as a literal the student must type.
+        return _value_equals(str(inp), _strip_quotes(expr))
+    name = mo.group(1)
+    args = _split_top_level(mo.group(2))
+    if name == 'and':
+        return all(_eval_predicate(a, state, inp) for a in args)
+    if name == 'or':
+        for a in args:
+            try:
+                if _eval_predicate(a, state, inp):
+                    return True
+            except _Unsupported:
+                continue
+        return False
+    if name in _EQ_PREDICATES and len(args) >= 2:
+        lhs = _resolve_operand(args[0], state, inp)
+        rhs = _resolve_operand(args[1], state, inp)
+        return _value_equals(lhs, rhs)
+    raise _Unsupported(f"unsupported predicate {name!r}")
+
+
 # ---------------------
 class BaseMatcher:
     def __str__(self):
@@ -150,14 +251,25 @@ class ExpressionMatcher(BaseMatcher):
     def check(self, state, inp):
         if inp is None:
             return False
-        # Formula didn't reduce to a literal: we don't know the expected value,
-        # so match leniently (any typed input is accepted). This matches the
-        # pre-existing behavior for unresolved ExpressionMatcher edges.
-        if self.target is None:
-            return True
-        if str(inp).strip() == str(self.target).strip():
-            return True
-        return _sympy_equal(str(inp), str(self.target))
+        # Strict evaluation against the full formula (handles and/or,
+        # state-variable references like concat(thirdleft,"+35"), and nested
+        # input-wrappers like calc(input)). If the formula uses a predicate
+        # we don't model, return False so wrong inputs are not silently
+        # accepted. The oracle still gets a demo input from ``self.target``
+        # for the resolvable branch, so BRDs whose first branch reduces to
+        # a literal keep passing; unresolvable BRDs count honestly as not
+        # supported.
+        try:
+            return bool(_eval_predicate(self.formula, state, inp))
+        except _Unsupported:
+            pass
+        # Final fallback: if a literal target was extracted, accept equality
+        # against it. Covers predicates whose arg resolution raised _Unsupported
+        # but whose target string the oracle already computed (keeps lenient
+        # pre-existing passes for pure-literal formulas intact).
+        if self.target is not None:
+            return _value_equals(str(inp), str(self.target))
+        return False
 
 
 class ExactMatcher(BaseMatcher): 
@@ -229,10 +341,15 @@ def parse_matcher(node):
     matcher_type = node.find("matcherType").text
     cls = matcher_classes[matcher_type]
     params = {x.attrib['name'] : x.text for x in node.iter("matcherParameter")}
-    # CTAT's author tool leaves matcherParameter text empty (None here) on edges
-    # that should accept any value — e.g. Buggy Actions whose Input field was
-    # never filled in. Treat those as AnyMatcher so parsing doesn't crash later
-    # (RegexMatcher(None) explodes inside norand_xeger).
+    # Normalise empty matcherParameter text (``None`` here). CTAT itself treats
+    # ExactMatcher(single="") as "expected input is the empty string" — e.g. a
+    # clear-field or no-op Correct Action — so preserve that semantic rather
+    # than silently converting to AnyMatcher (which would accept ANY input and
+    # corrupt grading). For other matcher classes with required params still
+    # missing, fall back to AnyMatcher so parsing doesn't crash (RegexMatcher
+    # with None regex explodes inside norand_xeger).
+    if matcher_type == "ExactMatcher" and params.get("single") is None:
+        return ExactMatcher("")
     if any(v is None for v in params.values()):
         return AnyMatcher()
     matcher = cls(**params)
@@ -250,12 +367,17 @@ def parse_old_matcher(node):
     inp = params["input"]
     actor = params["actor"].lower()
 
-    # Legacy <matcher> entries sometimes omit the <input> text (CTAT's author
-    # tool leaves it blank when the edge should match any value typed by the
-    # student). Build an AnyMatcher in that case and give the oracle a concrete
-    # empty-string demo value so the action still applies cleanly.
+    # Legacy <matcher> entries sometimes omit the <input> text. CTAT treats
+    # ExactMatcher with empty input as "expected input is the empty string"
+    # (not "match any") — e.g. a clear-field Correct Action. Preserve that so
+    # strict grading doesn't accept arbitrary wrong inputs. For other matcher
+    # classes where a missing param would crash construction (e.g. RegexMatcher
+    # with None regex), fall back to AnyMatcher.
     if inp is None:
-        inp_m = AnyMatcher()
+        if cls is ExactMatcher:
+            inp_m = ExactMatcher("")
+        else:
+            inp_m = AnyMatcher()
         inp = ""
     else:
         inp_m = cls(params["input"])

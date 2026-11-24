@@ -31,15 +31,18 @@ def _old_matcher_xml(selection, action, inp, actor="Student"):
     """)
 
 
-def test_old_matcher_with_null_input_becomes_anymatcher():
+def test_old_matcher_with_null_input_is_exact_empty():
+    # CTAT semantics: ExactMatcher with empty <input> means "expected input is
+    # the empty string" (not "accept any"). Preserves grading strictness on
+    # clear-field Correct Action edges like 6_25_HTML GCF-16_24.brd uid 17.
     actor, action = parse_old_matcher(_old_matcher_xml("R1C1", "UpdateTextField", None))
     assert actor == "student"
     assert action.input == ""
     checker = action.get_annotation("checker")
-    assert isinstance(checker.input_matcher, AnyMatcher)
-    # AnyMatcher accepts any typed value.
-    assert checker.input_matcher.check({}, "7") is True
+    assert isinstance(checker.input_matcher, ExactMatcher)
+    assert checker.input_matcher.value == ""
     assert checker.input_matcher.check({}, "") is True
+    assert checker.input_matcher.check({}, "7") is False
 
 
 def test_old_matcher_with_concrete_input_keeps_exact_semantics():
@@ -65,9 +68,21 @@ def _matcher_node(matcher_type, param_name, param_value):
     """)
 
 
-@pytest.mark.parametrize("mt", ["ExactMatcher", "RegexMatcher"])
-def test_parse_matcher_with_null_param_returns_anymatcher(mt):
-    node = _matcher_node(mt, "single", None)
+def test_parse_matcher_null_exact_becomes_empty_string_exact():
+    # Strict CTAT semantic preserved: empty <matcherParameter name="single">
+    # for an ExactMatcher means "expected value is ''".
+    node = _matcher_node("ExactMatcher", "single", None)
+    m = parse_matcher(node)
+    assert isinstance(m, ExactMatcher)
+    assert m.value == ""
+    assert m.check({}, "") is True
+    assert m.check({}, "x") is False
+
+
+def test_parse_matcher_null_regex_falls_back_to_any():
+    # RegexMatcher with None regex would crash norand_xeger — keep the
+    # defensive AnyMatcher fallback for non-Exact types.
+    node = _matcher_node("RegexMatcher", "single", None)
     m = parse_matcher(node)
     assert isinstance(m, AnyMatcher)
 
@@ -135,11 +150,49 @@ def test_expression_matcher_sympy_equivalence():
     assert m.check({}, None) is False
 
 
-def test_expression_matcher_unresolved_formula_is_lenient():
+def test_expression_matcher_unresolved_formula_is_strict():
+    # Strict grading: when the formula references an identifier we can't
+    # resolve against the state, reject the input rather than accept anything.
     m = ExpressionMatcher('expressionMatches(concat(x,"+1"),input)', "boolean")
     assert m.target is None
-    # Still has a self.value so parse_matchers can read something non-None.
+    # self.value is still a non-None string so edge template filters pass.
     assert m.value is not None
-    # Lenient: any typed input accepted when the RHS can't be reduced.
-    assert m.check({}, "anything") is True
+    # Empty state -> identifier 'x' unresolvable -> strict rejection.
+    assert m.check({}, "anything") is False
     assert m.check({}, None) is False
+
+
+def test_expression_matcher_resolves_state_variable_concat():
+    # concat(thirdleft,"+35") with thirdleft='9' resolves to '9+35'.
+    m = ExpressionMatcher(
+        'expressionMatches(concat(thirdleft,"+35"),input)', "boolean")
+    state = {"thirdleft": {"value": "9"}}
+    assert m.check(state, "9+35") is True
+    assert m.check(state, "10+35") is False
+    assert m.check(state, "44") is True  # algebraic equivalent
+
+
+def test_expression_matcher_or_accepts_any_branch():
+    m = ExpressionMatcher(
+        'or(expressionMatches(input, 3), expressionMatches(input, 5))',
+        "boolean")
+    assert m.check({}, "3") is True
+    assert m.check({}, "5") is True
+    assert m.check({}, "4") is False
+
+
+def test_expression_matcher_and_requires_all_branches():
+    # 6 satisfies both predicates (==6 and even). 4 satisfies only "even".
+    m = ExpressionMatcher(
+        'and(expressionMatches(input, 6), expressionMatches(input, 6))',
+        "boolean")
+    assert m.check({}, "6") is True
+    assert m.check({}, "4") is False
+
+
+def test_expression_matcher_calc_input_wrapper():
+    # matchWithoutPrecision(calc(input), "1") - calc(input) treated as input.
+    m = ExpressionMatcher('matchWithoutPrecision(calc(input),"1")', "boolean")
+    assert m.check({}, "1") is True
+    assert m.check({}, "1.0") is True   # sympy equal
+    assert m.check({}, "2") is False
