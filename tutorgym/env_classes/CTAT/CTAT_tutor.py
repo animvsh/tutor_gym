@@ -177,7 +177,7 @@ class CTAT_Tutor(StateMachineTutor):
             start_state = self._ensure_done_button(start_state)
             start_state = self._filter_state(start_state)
 
-            self.start_actions, self.edges, self.groups = \
+            self.start_actions, self.edges, self.groups, self.start_node_id = \
                 parse_brd(model_path)
 
         dir_list = os.path.split(model_path)[0].split(os.sep)
@@ -197,7 +197,10 @@ class CTAT_Tutor(StateMachineTutor):
             start_state = self.action_model.apply(start_state, action, make_copy=False)
 
         start_state.action_hist = []
-        start_state.add_annotations({"is_start": True, "unique_id" : "1"})
+        start_state.add_annotations({
+            "is_start": True,
+            "unique_id": self.start_node_id,
+        })
 
         # print('\n'.join([f"{k}:{obj['locked']}" for k, obj in start_state.objs.items()]))
 
@@ -218,8 +221,8 @@ class CTAT_Tutor(StateMachineTutor):
 
         # Then expand edges in waves, one frontier at a time.
         #  A frontier is the set of unvisited nodes that were
-        #  destinations of a previous wave's expanded edges. 
-        frontier = set(["1"])
+        #  destinations of a previous wave's expanded edges.
+        frontier = set([self.start_node_id])
         covered = set()
         while len(frontier) > 0:
             new_frontier = set()

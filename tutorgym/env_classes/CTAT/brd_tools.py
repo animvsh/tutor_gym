@@ -667,14 +667,25 @@ def parse_brd(filepath, verbosity=1):
     edges = {}
     _eg_nodes = []
     edge_groups = {}
+    node_name_to_id: dict = {}
 
     tree = ET.parse(filepath)
     root = tree.getroot()
+
+    # BRDs declare which node is the start via stateGraph/@startStateNodeName
+    # (e.g. 8_22_HTML uses "labelFilled"). Default to CTAT's "1" when absent.
+    start_node_name = root.attrib.get("startStateNodeName")
 
     try:
         for child in root:
             if(child.tag == "startNodeMessages"):
                 problem_name, start_actions = parse_start_node_messages(child)
+
+            elif(child.tag == "node"):
+                name_el = child.find("text")
+                uid_el = child.find("uniqueID")
+                if name_el is not None and uid_el is not None:
+                    node_name_to_id[name_el.text] = uid_el.text
 
             elif(child.tag == "edge"):
                 edge = (src,dest,action) = parse_edge(child, verbosity)
@@ -689,16 +700,10 @@ def parse_brd(filepath, verbosity=1):
     except Exception as e:
         raise type(e)(f"An error occured while parsing {filepath} " + str(e)) from e
 
+    start_node_id = node_name_to_id.get(start_node_name, "1") \
+        if start_node_name else "1"
 
-    # print(problem_name)
-    # print("--START ACTIONS--")
-    # for a in start_actions:
-    #     print(a)
-    # print("--EDGES--")
-    # for e in edges:
-    #     print(e)
-
-    return start_actions, edges, edge_groups
+    return start_actions, edges, edge_groups, start_node_id
 
         # print("  ", child, child.tag)
 

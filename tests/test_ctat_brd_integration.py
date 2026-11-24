@@ -60,3 +60,40 @@ def test_expression_matcher_brd_completes():
         MATHTUTOR / "6_01_HTML/FinalBRDs/Problem14.brd",
     )
     assert steps > 0
+
+
+def test_brd_start_state_node_name_respected():
+    # 8_22_HTML/01circleArea.brd declares startStateNodeName="labelFilled"
+    # (a non-"1" node). It never progressed past step 0 while the wrapper
+    # hardcoded the FSM start uid to "1". Fixing that makes the oracle
+    # complete the problem.
+    steps = _run_oracle(
+        MATHTUTOR / "8_22_HTML/HTML/8.22.html",
+        MATHTUTOR / "8_22_HTML/FinalBRDs/01circleArea.brd",
+    )
+    assert steps > 0
+
+
+def test_brd_start_state_falls_back_to_one_when_missing(tmp_path):
+    # A BRD without startStateNodeName should still begin at uid "1"
+    # (CTAT's historical default). Every full BRD in the corpus declares
+    # the attribute, so construct a minimal BRD on the fly that doesn't.
+    brd = tmp_path / "no_start.brd"
+    brd.write_text(
+        '<?xml version="1.0" standalone="yes"?>\n'
+        '<stateGraph version="4.0">\n'
+        '  <node><text>node1</text><uniqueID>1</uniqueID></node>\n'
+        '</stateGraph>\n'
+    )
+    from tutorgym.env_classes.CTAT.brd_tools import parse_brd
+    _, _, _, start_id = parse_brd(str(brd))
+    assert start_id == "1"
+
+
+def test_brd_start_state_resolves_named_node():
+    from tutorgym.env_classes.CTAT.brd_tools import parse_brd
+    _, _, _, start_id = parse_brd(
+        str(MATHTUTOR / "8_22_HTML/FinalBRDs/01circleArea.brd")
+    )
+    # "labelFilled" node has uniqueID 24 in that BRD.
+    assert start_id == "24"
